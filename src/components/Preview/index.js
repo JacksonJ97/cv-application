@@ -5,12 +5,14 @@ import { Wrapper } from "./Preview.style";
 
 // Component
 import BasicInfoView from "./BasicInfoView";
+import SummaryView from "./SummaryView";
 
 class Preview extends Component {
   render() {
     return (
       <Wrapper>
-        <BasicInfoView info={this.props.info} />
+        <BasicInfoView info={this.props.basicInfo} />
+        <SummaryView info={this.props.summaryInfo} />
       </Wrapper>
     );
   }
