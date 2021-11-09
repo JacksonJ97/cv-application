@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  margin-bottom: 1em;
+
   h3 {
     font-size: 1rem;
   }

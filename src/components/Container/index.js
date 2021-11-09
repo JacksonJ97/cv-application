@@ -11,9 +11,9 @@ class Container extends Component {
   render() {
     const basicInfo = {
       name: "Jackson Jude",
-      address: "40 Tuxedo Crt",
-      phone: "647-609-7671",
-      email: "jacksonjude97@gmail.com",
+      address: "123 Random Street",
+      phone: "123-456-7890",
+      email: "example@gmail.com",
     };
 
     const summaryInfo = {

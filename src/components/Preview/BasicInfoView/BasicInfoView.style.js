@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 
   .name {
+    display: flex;
+    align-items: flex-end;
     font-size: 2rem;
   }
 
@@ -16,5 +18,6 @@ export const Wrapper = styled.div`
   .basic-info div {
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 0.25em;
   }
 `;

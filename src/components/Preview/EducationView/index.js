@@ -16,6 +16,13 @@ class EducationView extends Component {
           startDate={this.props.info.startDate}
           endDate={this.props.info.endDate}
         />
+        <Education
+          school={this.props.info.school}
+          degree={this.props.info.degree}
+          location={this.props.info.location}
+          startDate={this.props.info.startDate}
+          endDate={this.props.info.endDate}
+        />
       </div>
     );
   }
