@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
 
   .name {
     font-size: 2rem;
@@ -11,7 +10,7 @@ export const Wrapper = styled.div`
 
   .basic-info {
     display: block;
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
 
   .basic-info div {
