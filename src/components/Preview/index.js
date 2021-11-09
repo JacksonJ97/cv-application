@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-// Style
+// Styles
 import { Wrapper } from "./Preview.style";
 
-// Component
+// Components
 import BasicInfoView from "./BasicInfoView";
 import SummaryView from "./SummaryView";
 import ExperienceView from "./ExperienceView";
@@ -16,7 +16,7 @@ class Preview extends Component {
         <BasicInfoView info={this.props.basicInfo} />
         <SummaryView info={this.props.summaryInfo} />
         <ExperienceView info={this.props.experienceInfo} />
-        <EducationView />
+        <EducationView info={this.props.educationInfo} />
       </Wrapper>
     );
   }

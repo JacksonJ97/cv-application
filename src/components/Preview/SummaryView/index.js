@@ -11,7 +11,7 @@ class SummaryView extends Component {
     return (
       <Wrapper>
         <Heading title="Summary" />
-        <div>{this.props.info.text}</div>
+        <p>{this.props.info.text}</p>
       </Wrapper>
     );
   }

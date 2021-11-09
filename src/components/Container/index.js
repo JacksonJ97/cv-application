@@ -31,10 +31,18 @@ class Container extends Component {
       ],
     };
 
+    const educationInfo = {
+      school: "Ryerson University",
+      degree: "Bachelor of Engineering (BEng) in Electrical Engineering",
+      location: "Toronto, ON",
+      startDate: "Sept 2015",
+      endDate: "April 2020",
+    };
+
     return (
       <Wrapper>
         <Form />
-        <Preview basicInfo={basicInfo} summaryInfo={summaryInfo} experienceInfo={experienceInfo} />
+        <Preview basicInfo={basicInfo} summaryInfo={summaryInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} />
       </Wrapper>
     );
   }
