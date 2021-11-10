@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
 // Components
-import Heading from "../../Utilities/Heading";
+import FormHeading from "../../Utilities/FormHeading";
 import Input from "../../Utilities/Input";
 
 class EducationForm extends Component {
   render() {
     return (
       <div>
-        <Heading title="Education Information" />
+        <FormHeading title="Education" />
         <Input placeholder="School" />
         <Input placeholder="Degree" />
         <Input placeholder="Location" />

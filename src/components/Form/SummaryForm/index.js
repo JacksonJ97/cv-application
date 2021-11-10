@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
 // Components
-import Heading from "../../Utilities/Heading";
+import FormHeading from "../../Utilities/FormHeading";
 
 class SummaryForm extends Component {
   render() {
     return (
       <div>
-        <Heading title="Summary Information" />
+        <FormHeading title="Summary" />
         <textarea />
       </div>
     );

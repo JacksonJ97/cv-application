@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 
+// Styles
+import { Wrapper } from "./Input.style";
+
 class Input extends Component {
   render() {
-    return <input type="text" placeholder={this.props.placeholder} />;
+    return <Wrapper type="text" placeholder={this.props.placeholder} />;
   }
 }
 

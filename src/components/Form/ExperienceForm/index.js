@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
 // Components
-import Heading from "../../Utilities/Heading";
+import FormHeading from "../../Utilities/FormHeading";
 import Input from "../../Utilities/Input";
 
 class ExperienceForm extends Component {
   render() {
     return (
       <div>
-        <Heading title="Work Experience Information" />
+        <FormHeading title="Work Experience" />
         <Input placeholder="Company" />
         <Input placeholder="Start Date" />
         <Input placeholder="End Date" />
