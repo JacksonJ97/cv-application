@@ -7,7 +7,9 @@ class BasicInfoView extends Component {
   render() {
     return (
       <Wrapper>
-        <div className="name">{this.props.info.name}</div>
+        <div className="name">
+          {this.props.info.firstName} {this.props.info.lastName}
+        </div>
 
         <div className="basic-info">
           <div>{this.props.info.address}</div>

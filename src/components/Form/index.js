@@ -10,13 +10,22 @@ import ExperienceForm from "./ExperienceForm";
 import EducationForm from "./EducationForm";
 
 class Form extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(value, name) {
+    this.props.onChange(value, name);
+  }
+
   render() {
     return (
       <Wrapper>
-        <BasicInfoForm />
-        <SummaryForm />
-        <ExperienceForm />
-        <EducationForm />
+        <BasicInfoForm info={this.props.basicInfo} onChange={this.handleChange} />
+        <SummaryForm info={this.props.summaryInfo} onChange={this.handleChange} />
+        <ExperienceForm info={this.props.experienceInfo} onChange={this.handleChange} />
+        <EducationForm info={this.props.educationInfo} onChange={this.handleChange} />
       </Wrapper>
     );
   }

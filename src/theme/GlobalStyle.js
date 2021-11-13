@@ -7,6 +7,13 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: "Nunito", sans-serif;
   }
+
+  input {
+    display: block;
+    width: 100%;
+    margin: 1em auto;
+    padding: 0.5em;
+  }
 `;
 
 export default GlobalStyle;
