@@ -4,8 +4,17 @@ import React, { Component } from "react";
 import { Button } from "./DeleteButton.style";
 
 class DeleteButton extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.onClick();
+  }
+
   render() {
-    return <Button>Delete</Button>;
+    return <Button onClick={this.handleClick}>Delete</Button>;
   }
 }
 

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+// Styles
+import { Textarea } from "./SummaryForm.style";
+
 class SummaryForm extends Component {
   constructor(props) {
     super(props);
@@ -11,11 +14,7 @@ class SummaryForm extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <textarea value={this.props.info} onChange={this.handleChange} name="summary" />
-      </div>
-    );
+    return <Textarea value={this.props.info} onChange={this.handleChange} name="summary" />;
   }
 }
 

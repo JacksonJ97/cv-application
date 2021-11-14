@@ -17,6 +17,7 @@ class Form extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleChange(value, name) {
@@ -25,6 +26,10 @@ class Form extends Component {
 
   handleEducationChange(value, name, id) {
     this.props.onEducationChange(value, name, id);
+  }
+
+  handleDelete(id) {
+    this.props.handleEducationDelete(id);
   }
 
   handleClick() {
@@ -48,7 +53,14 @@ class Form extends Component {
 
         <FormHeading title="Education" />
         {education.map((item, index) => {
-          return <EducationForm info={item} onEducationChange={this.handleEducationChange} key={index} />;
+          return (
+            <EducationForm
+              info={item}
+              onEducationChange={this.handleEducationChange}
+              handleEducationDelete={this.handleDelete}
+              key={index}
+            />
+          );
         })}
         <AddButton onClick={this.handleClick} />
       </Wrapper>

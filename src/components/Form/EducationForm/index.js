@@ -7,6 +7,11 @@ class EducationForm extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.handleEducationDelete(this.props.info.id);
   }
 
   handleChange(e) {
@@ -27,7 +32,7 @@ class EducationForm extends Component {
         <input type="text" value={location} placeholder="Location" onChange={this.handleChange} name="location" />
         <input type="text" value={startDate} placeholder="Start Date" onChange={this.handleChange} name="startDate" />
         <input type="text" value={endDate} placeholder="End Date" onChange={this.handleChange} name="endDate" />
-        <DeleteButton />
+        <DeleteButton onClick={this.handleClick} />
       </div>
     );
   }

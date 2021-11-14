@@ -11,14 +11,14 @@ class EducationView extends Component {
     return (
       <div>
         <Heading title="Education" />
-        {education.map((item, index) => {
+        {education.map((element, index) => {
           return (
             <Education
-              school={item.school}
-              degree={item.degree}
-              location={item.location}
-              startDate={item.startDate}
-              endDate={item.endDate}
+              school={element.school}
+              degree={element.degree}
+              location={element.location}
+              startDate={element.startDate}
+              endDate={element.endDate}
               key={index}
             />
           );
