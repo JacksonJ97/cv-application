@@ -1,11 +1,19 @@
 import React, { Component } from "react";
-
-// Styles
-import { Wrapper } from "./Experience.style";
+import styled from "styled-components";
 
 // Components
 import SubHeading from "../../../Utilities/SubHeading";
 import Date from "../../../Utilities/Date";
+
+// Styles
+const Wrapper = styled.div`
+  margin-bottom: 1em;
+
+  ul {
+    font-size: 0.875rem;
+    margin-left: 2em;
+  }
+`;
 
 class Experience extends Component {
   render() {

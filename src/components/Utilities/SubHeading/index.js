@@ -1,11 +1,15 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 // Styles
-import { Subtitle } from "./SubHeading.style";
+const SubHeader = styled.h3`
+  font-size: 1rem;
+  margin-bottom: 0.25em;
+`;
 
 class SubHeading extends Component {
   render() {
-    return <Subtitle>{this.props.subtitle}</Subtitle>;
+    return <SubHeader>{this.props.subtitle}</SubHeader>;
   }
 }
 

@@ -1,11 +1,17 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 // Styles
-import { Title } from "./Heading.style";
+const Header = styled.h2`
+  margin: 1em 0;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid black;
+  font-weight: 400;
+`;
 
 class Heading extends Component {
   render() {
-    return <Title>{this.props.title}</Title>;
+    return <Header>{this.props.title}</Header>;
   }
 }
 

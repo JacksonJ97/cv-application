@@ -1,11 +1,16 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 // Styles
-import { Wrapper } from "./FormHeading.style";
+const Header = styled.h2`
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.75em;
+`;
 
 class FormHeading extends Component {
   render() {
-    return <Wrapper>{this.props.title}</Wrapper>;
+    return <Header>{this.props.title}</Header>;
   }
 }
 

@@ -7,15 +7,19 @@ class ExperienceForm extends Component {
   }
 
   handleChange(e) {
-    this.props.onChange(e.target.value, e.target.name);
+    this.props.onExperienceChange(e.target.value, e.target.name, this.props.info.id);
   }
 
   render() {
+    const company = this.props.info.company;
+    const startDate = this.props.info.startDate;
+    const endDate = this.props.info.endDate;
+
     return (
       <div>
-        <input type="text" placeholder="Company" />
-        <input type="text" placeholder="Start Date" />
-        <input type="text" placeholder="End Date" />
+        <input type="text" value={company} placeholder="Company" onChange={this.handleChange} name="company" />
+        <input type="text" value={startDate} placeholder="Start Date" onChange={this.handleChange} name="startDate" />
+        <input type="text" value={endDate} placeholder="End Date" onChange={this.handleChange} name="endDate" />
         <textarea />
       </div>
     );

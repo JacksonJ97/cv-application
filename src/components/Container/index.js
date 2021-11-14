@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import uniqueId from "lodash/uniqueId";
-
-// Styles
-import { Wrapper } from "./Container.style";
+import styled from "styled-components";
 
 // Components
 import Form from "../Form";
 import Preview from "../Preview";
+
+// Styles
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+`;
 
 class Container extends Component {
   constructor(props) {
@@ -19,6 +25,19 @@ class Container extends Component {
       email: "example@gmail.com",
       summary:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      experience: [
+        {
+          id: uniqueId(),
+          company: "JenJack Renovations",
+          startDate: "April 2019",
+          endDate: "March 2020",
+          details: [
+            "Removed old bathroom tiles and replaced it with new tiles",
+            "Removed old flooring and applied hardwood flooring",
+            "Taped around fixtures and painted the walls",
+          ],
+        },
+      ],
       education: [
         {
           id: uniqueId(),
@@ -32,6 +51,7 @@ class Container extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleExperienceChange = this.handleExperienceChange.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -40,6 +60,8 @@ class Container extends Component {
   handleChange(value, name) {
     this.setState({ ...this.state, [name]: value });
   }
+
+  handleExperienceChange(value, name, id) {}
 
   handleEducationChange(value, name, id) {
     let stateCopy = [...this.state.education];
@@ -71,16 +93,7 @@ class Container extends Component {
 
     const summaryInfo = this.state.summary;
 
-    const experienceInfo = {
-      company: "JenJack Renovations",
-      startDate: "April 2019",
-      endDate: "March 2020",
-      details: [
-        "Removed old bathroom tiles and replaced it with new tiles",
-        "Removed old flooring and applied hardwood flooring",
-        "Taped around fixtures and painted the walls",
-      ],
-    };
+    const experienceInfo = this.state.experience;
 
     const educationInfo = this.state.education;
 
@@ -92,6 +105,7 @@ class Container extends Component {
           experienceInfo={experienceInfo}
           educationInfo={educationInfo}
           onChange={this.handleChange}
+          onExperienceChange={this.handleExperienceChange}
           onEducationChange={this.handleEducationChange}
           handleEducationDelete={this.handleDelete}
           onClick={this.handleClick}

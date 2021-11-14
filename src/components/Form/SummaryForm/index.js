@@ -1,7 +1,13 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 // Styles
-import { Textarea } from "./SummaryForm.style";
+const Textarea = styled.textarea`
+  width: 100%;
+  height: 100px;
+  padding: 0.25em;
+  resize: none;
+`;
 
 class SummaryForm extends Component {
   constructor(props) {

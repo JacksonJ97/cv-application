@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-
-// Styles
-import { Wrapper } from "./SummaryView.style";
+import styled from "styled-components";
 
 // Components
 import Heading from "../../Utilities/Heading";
+
+// Styles
+const Wrapper = styled.div`
+  p {
+    font-size: 0.875rem;
+  }
+`;
 
 class SummaryView extends Component {
   render() {

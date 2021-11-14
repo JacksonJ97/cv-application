@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 // Styles
-import { Wrapper } from "./Date.style";
+const Wrapper = styled.div`
+  font-size: 0.875rem;
+  margin-bottom: 1em;
+`;
 
 class Date extends Component {
   render() {

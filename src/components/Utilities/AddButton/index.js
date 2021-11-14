@@ -1,7 +1,12 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 // Styles
-import { Button } from "./AddButton.style";
+const Button = styled.button`
+  width: 100%;
+  padding: 0.5em;
+  margin: 0.5em 0;
+`;
 
 class AddButton extends Component {
   constructor(props) {

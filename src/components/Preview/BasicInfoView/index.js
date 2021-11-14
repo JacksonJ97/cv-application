@@ -1,7 +1,28 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 // Styles
-import { Wrapper } from "./BasicInfoView.style";
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  .name {
+    display: flex;
+    align-items: flex-end;
+    font-size: 2rem;
+  }
+
+  .basic-info {
+    display: block;
+    font-size: 0.75rem;
+  }
+
+  .basic-info div {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.25em;
+  }
+`;
 
 class BasicInfoView extends Component {
   render() {
@@ -13,7 +34,7 @@ class BasicInfoView extends Component {
 
         <div className="basic-info">
           <div>{this.props.info.address}</div>
-          <div>{this.props.info.phone}</div>
+          <div>{this.props.info.phoneNumber}</div>
           <div>{this.props.info.email}</div>
         </div>
       </Wrapper>
