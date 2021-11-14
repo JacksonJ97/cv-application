@@ -27,14 +27,6 @@ class Container extends Component {
           startDate: "Sept 2015",
           endDate: "April 2020",
         },
-        {
-          id: uniqueId(),
-          school: "Havard University",
-          degree: "Bachelor of Engineering (BEng) in Electrical Engineering",
-          location: "Toronto, ON",
-          startDate: "Sept 2019",
-          endDate: "April 2020",
-        },
       ],
     };
 
