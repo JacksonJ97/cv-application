@@ -10,7 +10,7 @@ class EducationForm extends Component {
   }
 
   handleChange(e) {
-    this.props.onChange(e.target.value, e.target.name);
+    this.props.onEducationChange(e.target.value, e.target.name, this.props.info.id);
   }
 
   render() {

@@ -16,10 +16,15 @@ class Form extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleEducationChange = this.handleEducationChange.bind(this);
   }
 
   handleChange(value, name) {
     this.props.onChange(value, name);
+  }
+
+  handleEducationChange(value, name, id) {
+    this.props.onEducationChange(value, name, id);
   }
 
   handleClick() {
@@ -43,7 +48,7 @@ class Form extends Component {
 
         <FormHeading title="Education" />
         {education.map((item, index) => {
-          return <EducationForm info={item} onChange={this.handleChange} key={index} />;
+          return <EducationForm info={item} onEducationChange={this.handleEducationChange} key={index} />;
         })}
         <AddButton onClick={this.handleClick} />
       </Wrapper>

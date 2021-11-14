@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import uniqueId from "lodash/uniqueId";
 
 // Styles
 import { Wrapper } from "./Container.style";
@@ -16,9 +17,10 @@ class Container extends Component {
       address: "",
       phoneNumber: "",
       email: "",
-      text: "",
+      summary: "",
       education: [
         {
+          id: uniqueId(),
           school: "Ryerson University",
           degree: "Bachelor of Engineering (BEng) in Electrical Engineering",
           location: "Toronto, ON",
@@ -26,6 +28,7 @@ class Container extends Component {
           endDate: "April 2020",
         },
         {
+          id: uniqueId(),
           school: "Havard University",
           degree: "Bachelor of Engineering (BEng) in Electrical Engineering",
           location: "Toronto, ON",
@@ -50,6 +53,7 @@ class Container extends Component {
     // };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -57,10 +61,16 @@ class Container extends Component {
     this.setState({ ...this.state, [name]: value });
   }
 
+  handleEducationChange(value, name, id) {
+    let stateCopy = [...this.state.education];
+    let index = stateCopy.findIndex((element) => element.id === id);
+    stateCopy[index][name] = value;
+    this.setState({ stateCopy });
+  }
+
   handleClick() {
     this.setState({
-      ...this.state,
-      education: [...this.state.education, { school: "", degree: "", location: "", startDate: "", endDate: "" }],
+      education: [...this.state.education, { id: uniqueId(), school: "", degree: "", location: "", startDate: "", endDate: "" }],
     });
   }
 
@@ -73,7 +83,7 @@ class Container extends Component {
       email: this.state.email,
     };
 
-    const summaryInfo = this.state.text;
+    const summaryInfo = this.state.summary;
 
     const experienceInfo = {
       company: "JenJack Renovations",
@@ -88,8 +98,6 @@ class Container extends Component {
 
     const educationInfo = this.state.education;
 
-    console.log(this.state);
-
     return (
       <Wrapper>
         <Form
@@ -98,6 +106,7 @@ class Container extends Component {
           experienceInfo={experienceInfo}
           educationInfo={educationInfo}
           onChange={this.handleChange}
+          onEducationChange={this.handleEducationChange}
           onClick={this.handleClick}
         />
         <Preview basicInfo={basicInfo} summaryInfo={summaryInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} />
