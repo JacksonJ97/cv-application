@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-// Components
-import FormHeading from "../../Utilities/FormHeading";
-
 class ExperienceForm extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +13,6 @@ class ExperienceForm extends Component {
   render() {
     return (
       <div>
-        <FormHeading title="Work Experience" />
         <input type="text" placeholder="Company" />
         <input type="text" placeholder="Start Date" />
         <input type="text" placeholder="End Date" />

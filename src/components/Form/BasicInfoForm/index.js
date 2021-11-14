@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-// Components
-import FormHeading from "../../Utilities/FormHeading";
-
 class BasicInfoForm extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +19,6 @@ class BasicInfoForm extends Component {
 
     return (
       <div>
-        <FormHeading title="Personal Information" />
-
         <div>
           <input type="text" value={firstName} placeholder="First Name" onChange={this.handleChange} name="firstName" />
           <input type="text" value={lastName} placeholder="Last Name" onChange={this.handleChange} name="lastName" />

@@ -15,12 +15,13 @@ class ExperienceView extends Component {
           endDate={this.props.info.endDate}
           details={this.props.info.details}
         />
-        <Experience
+
+        {/* <Experience
           company={this.props.info.company}
           startDate={this.props.info.startDate}
           endDate={this.props.info.endDate}
           details={this.props.info.details}
-        />
+        /> */}
       </div>
     );
   }

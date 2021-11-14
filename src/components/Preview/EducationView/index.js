@@ -6,23 +6,23 @@ import Education from "./Education";
 
 class EducationView extends Component {
   render() {
+    const education = this.props.info;
+
     return (
       <div>
         <Heading title="Education" />
-        <Education
-          school={this.props.info.school}
-          degree={this.props.info.degree}
-          location={this.props.info.location}
-          startDate={this.props.info.startDate}
-          endDate={this.props.info.endDate}
-        />
-        <Education
-          school={this.props.info.school}
-          degree={this.props.info.degree}
-          location={this.props.info.location}
-          startDate={this.props.info.startDate}
-          endDate={this.props.info.endDate}
-        />
+        {education.map((item, index) => {
+          return (
+            <Education
+              school={item.school}
+              degree={item.degree}
+              location={item.location}
+              startDate={item.startDate}
+              endDate={item.endDate}
+              key={index}
+            />
+          );
+        })}
       </div>
     );
   }
