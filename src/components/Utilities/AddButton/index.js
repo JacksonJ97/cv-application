@@ -14,12 +14,16 @@ class AddButton extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    this.props.onClick();
+  handleClick(e) {
+    this.props.onClick(e.target.name);
   }
 
   render() {
-    return <Button onClick={this.handleClick}>Add</Button>;
+    return (
+      <Button onClick={this.handleClick} name={this.props.name}>
+        Add
+      </Button>
+    );
   }
 }
 

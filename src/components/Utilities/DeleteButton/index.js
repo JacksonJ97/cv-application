@@ -14,12 +14,16 @@ class DeleteButton extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    this.props.onClick();
+  handleClick(e) {
+    this.props.onClick(this.props.id, e.target.name);
   }
 
   render() {
-    return <Button onClick={this.handleClick}>Delete</Button>;
+    return (
+      <Button onClick={this.handleClick} name={this.props.name} id={this.props.id}>
+        Delete
+      </Button>
+    );
   }
 }
 

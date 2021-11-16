@@ -28,13 +28,13 @@ class Container extends Component {
       experience: [
         {
           id: uniqueId(),
-          company: "JenJack Renovations",
+          company: "Example Company",
           startDate: "April 2019",
           endDate: "March 2020",
           details: [
-            "Removed old bathroom tiles and replaced it with new tiles",
-            "Removed old flooring and applied hardwood flooring",
-            "Taped around fixtures and painted the walls",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
           ],
         },
       ],
@@ -53,7 +53,7 @@ class Container extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleExperienceChange = this.handleExperienceChange.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -70,16 +70,32 @@ class Container extends Component {
     this.setState({ stateCopy });
   }
 
-  handleDelete(id) {
-    let stateCopy = [...this.state.education];
-    let newState = stateCopy.filter((element) => element.id !== id);
-    this.setState({ education: newState });
+  handleDelete(id, name) {
+    if (name === "experienceDelete") {
+      let stateCopy = [...this.state.experience];
+      let newState = stateCopy.filter((element) => element.id !== id);
+      this.setState({ experience: newState });
+    }
+
+    if (name === "educationDelete") {
+      let stateCopy = [...this.state.education];
+      let newState = stateCopy.filter((element) => element.id !== id);
+      this.setState({ education: newState });
+    }
   }
 
-  handleClick() {
-    this.setState({
-      education: [...this.state.education, { id: uniqueId(), school: "", degree: "", location: "", startDate: "", endDate: "" }],
-    });
+  handleAdd(name) {
+    if (name === "experienceAdd") {
+      this.setState({
+        experience: [...this.state.experience, { id: uniqueId(), company: "", startDate: "", endDate: "", details: [] }],
+      });
+    }
+
+    if (name === "educationAdd") {
+      this.setState({
+        education: [...this.state.education, { id: uniqueId(), school: "", degree: "", location: "", startDate: "", endDate: "" }],
+      });
+    }
   }
 
   render() {
@@ -92,9 +108,7 @@ class Container extends Component {
     };
 
     const summaryInfo = this.state.summary;
-
     const experienceInfo = this.state.experience;
-
     const educationInfo = this.state.education;
 
     return (
@@ -107,8 +121,8 @@ class Container extends Component {
           onChange={this.handleChange}
           onExperienceChange={this.handleExperienceChange}
           onEducationChange={this.handleEducationChange}
-          handleEducationDelete={this.handleDelete}
-          onClick={this.handleClick}
+          handleDelete={this.handleDelete}
+          handleAdd={this.handleAdd}
         />
         <Preview basicInfo={basicInfo} summaryInfo={summaryInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} />
       </Wrapper>

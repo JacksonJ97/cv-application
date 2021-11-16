@@ -22,10 +22,10 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
     this.handleExperienceChange = this.handleExperienceChange(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
   handleChange(value, name) {
@@ -40,12 +40,12 @@ class Form extends Component {
     this.props.onEducationChange(value, name, id);
   }
 
-  handleDelete(id) {
-    this.props.handleEducationDelete(id);
+  handleDelete(id, name) {
+    this.props.handleDelete(id, name);
   }
 
-  handleClick() {
-    this.props.onClick();
+  handleAdd(name) {
+    this.props.handleAdd(name);
   }
 
   render() {
@@ -62,23 +62,19 @@ class Form extends Component {
 
         <FormHeading title="Work Experience" />
         {experience.map((element, index) => {
-          return <ExperienceForm info={element} onExperienceChange={this.handleExperienceChange} key={index} />;
+          return (
+            <ExperienceForm info={element} onExperienceChange={this.handleExperienceChange} handleDelete={this.handleDelete} key={index} />
+          );
         })}
-
-        <AddButton />
+        <AddButton onClick={this.handleAdd} name="experienceAdd" />
 
         <FormHeading title="Education" />
         {education.map((element, index) => {
           return (
-            <EducationForm
-              info={element}
-              onEducationChange={this.handleEducationChange}
-              handleEducationDelete={this.handleDelete}
-              key={index}
-            />
+            <EducationForm info={element} onEducationChange={this.handleEducationChange} handleDelete={this.handleDelete} key={index} />
           );
         })}
-        <AddButton onClick={this.handleClick} />
+        <AddButton onClick={this.handleAdd} name="educationAdd" />
       </Wrapper>
     );
   }
