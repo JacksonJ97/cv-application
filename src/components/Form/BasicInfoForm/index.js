@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 
+// Components
+import Input from "../../Utilities/Input";
+
 class BasicInfoForm extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    this.props.onChange(e.target.value, e.target.name);
+  handleChange(value, name, id, section) {
+    this.props.handleChange(value, name, id, section);
   }
 
   render() {
@@ -20,11 +23,11 @@ class BasicInfoForm extends Component {
     return (
       <div>
         <div>
-          <input type="text" value={firstName} placeholder="First Name" onChange={this.handleChange} name="firstName" />
-          <input type="text" value={lastName} placeholder="Last Name" onChange={this.handleChange} name="lastName" />
-          <input type="text" value={address} placeholder="Address" onChange={this.handleChange} name="address" />
-          <input type="text" value={phoneNumber} placeholder="Phone Number" onChange={this.handleChange} name="phoneNumber" />
-          <input type="text" value={email} placeholder="Email" onChange={this.handleChange} name="email" />
+          <Input value={firstName} placeholder="First Name" onChange={this.handleChange} name="firstName" />
+          <Input value={lastName} placeholder="Last Name" onChange={this.handleChange} name="lastName" />
+          <Input value={address} placeholder="Address" onChange={this.handleChange} name="address" />
+          <Input value={phoneNumber} placeholder="Phone Number" onChange={this.handleChange} name="phoneNumber" />
+          <Input value={email} placeholder="Email" onChange={this.handleChange} name="email" />
         </div>
       </div>
     );

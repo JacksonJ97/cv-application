@@ -16,7 +16,7 @@ class SummaryForm extends Component {
   }
 
   handleChange(e) {
-    this.props.onChange(e.target.value, e.target.name);
+    this.props.handleChange(e.target.value, e.target.name);
   }
 
   render() {

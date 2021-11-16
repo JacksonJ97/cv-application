@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 // Components
+import Input from "../../Utilities/Input";
 import DeleteButton from "../../Utilities/DeleteButton";
 
 class ExperienceForm extends Component {
@@ -14,8 +15,8 @@ class ExperienceForm extends Component {
     this.props.handleDelete(id, name);
   }
 
-  handleChange(e) {
-    this.props.onExperienceChange(e.target.value, e.target.name, this.props.info.id);
+  handleChange(value, name, id, section) {
+    this.props.handleChange(value, name, id, section);
   }
 
   render() {
@@ -25,9 +26,30 @@ class ExperienceForm extends Component {
 
     return (
       <div>
-        <input type="text" value={company} placeholder="Company" onChange={this.handleChange} name="company" />
-        <input type="text" value={startDate} placeholder="Start Date" onChange={this.handleChange} name="startDate" />
-        <input type="text" value={endDate} placeholder="End Date" onChange={this.handleChange} name="endDate" />
+        <Input
+          value={company}
+          placeholder="Company"
+          onChange={this.handleChange}
+          name="company"
+          section="experience"
+          id={this.props.info.id}
+        />
+        <Input
+          value={startDate}
+          placeholder="Start Date"
+          onChange={this.handleChange}
+          name="startDate"
+          section="experience"
+          id={this.props.info.id}
+        />
+        <Input
+          value={endDate}
+          placeholder="End Date"
+          onChange={this.handleChange}
+          name="endDate"
+          section="experience"
+          id={this.props.info.id}
+        />
         <textarea />
         <DeleteButton onClick={this.handleDelete} name="experienceDelete" id={this.props.info.id} />
       </div>

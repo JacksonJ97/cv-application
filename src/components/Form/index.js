@@ -22,22 +22,12 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.handleExperienceChange = this.handleExperienceChange(this);
-    this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
   }
 
-  handleChange(value, name) {
-    this.props.onChange(value, name);
-  }
-
-  handleExperienceChange(value, name, id) {
-    this.props.onExperienceChange(value, name, id);
-  }
-
-  handleEducationChange(value, name, id) {
-    this.props.onEducationChange(value, name, id);
+  handleChange(value, name, id, section) {
+    this.props.handleChange(value, name, id, section);
   }
 
   handleDelete(id, name) {
@@ -55,24 +45,20 @@ class Form extends Component {
     return (
       <Wrapper>
         <FormHeading title="Personal Information" />
-        <BasicInfoForm info={this.props.basicInfo} onChange={this.handleChange} />
+        <BasicInfoForm info={this.props.basicInfo} handleChange={this.handleChange} />
 
         <FormHeading title="Summary" />
-        <SummaryForm info={this.props.summaryInfo} onChange={this.handleChange} />
+        <SummaryForm info={this.props.summaryInfo} handleChange={this.handleChange} />
 
         <FormHeading title="Work Experience" />
-        {experience.map((element, index) => {
-          return (
-            <ExperienceForm info={element} onExperienceChange={this.handleExperienceChange} handleDelete={this.handleDelete} key={index} />
-          );
+        {experience.map((element) => {
+          return <ExperienceForm info={element} handleChange={this.handleChange} handleDelete={this.handleDelete} key={element.id} />;
         })}
         <AddButton onClick={this.handleAdd} name="experienceAdd" />
 
         <FormHeading title="Education" />
-        {education.map((element, index) => {
-          return (
-            <EducationForm info={element} onEducationChange={this.handleEducationChange} handleDelete={this.handleDelete} key={index} />
-          );
+        {education.map((element) => {
+          return <EducationForm info={element} handleChange={this.handleChange} handleDelete={this.handleDelete} key={element.id} />;
         })}
         <AddButton onClick={this.handleAdd} name="educationAdd" />
       </Wrapper>

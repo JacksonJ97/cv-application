@@ -24,7 +24,7 @@ class Container extends Component {
       phoneNumber: "123-456-7890",
       email: "example@gmail.com",
       summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       experience: [
         {
           id: uniqueId(),
@@ -51,23 +51,26 @@ class Container extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleExperienceChange = this.handleExperienceChange.bind(this);
-    this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handleChange(value, name) {
+  handleChange(value, name, id, section) {
     this.setState({ ...this.state, [name]: value });
-  }
 
-  handleExperienceChange(value, name, id) {}
+    if (section === "experience") {
+      let stateCopy = [...this.state.experience];
+      let index = stateCopy.findIndex((element) => element.id === id);
+      stateCopy[index][name] = value;
+      this.setState({ stateCopy });
+    }
 
-  handleEducationChange(value, name, id) {
-    let stateCopy = [...this.state.education];
-    let index = stateCopy.findIndex((element) => element.id === id);
-    stateCopy[index][name] = value;
-    this.setState({ stateCopy });
+    if (section === "education") {
+      let stateCopy = [...this.state.education];
+      let index = stateCopy.findIndex((element) => element.id === id);
+      stateCopy[index][name] = value;
+      this.setState({ stateCopy });
+    }
   }
 
   handleDelete(id, name) {
@@ -118,9 +121,7 @@ class Container extends Component {
           summaryInfo={summaryInfo}
           experienceInfo={experienceInfo}
           educationInfo={educationInfo}
-          onChange={this.handleChange}
-          onExperienceChange={this.handleExperienceChange}
-          onEducationChange={this.handleEducationChange}
+          handleChange={this.handleChange}
           handleDelete={this.handleDelete}
           handleAdd={this.handleAdd}
         />
