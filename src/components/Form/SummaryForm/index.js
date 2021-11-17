@@ -20,7 +20,7 @@ class SummaryForm extends Component {
   }
 
   render() {
-    return <Textarea value={this.props.info} onChange={this.handleChange} name="summary" />;
+    return <Textarea value={this.props.info} onChange={this.handleChange} name="summary" placeholder="Description" />;
   }
 }
 

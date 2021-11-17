@@ -9,14 +9,14 @@ class ExperienceView extends Component {
     return (
       <div>
         <Heading title="Work Experience" />
-        {this.props.info.map((element, index) => {
+        {this.props.info.map((element) => {
           return (
             <Experience
               company={element.company}
               startDate={element.startDate}
               endDate={element.endDate}
               details={element.details}
-              key={index}
+              key={element.id}
             />
           );
         })}

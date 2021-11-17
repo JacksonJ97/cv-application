@@ -32,9 +32,8 @@ class Container extends Component {
           startDate: "April 2019",
           endDate: "March 2020",
           details: [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            { id: uniqueId() + 1, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
+            { id: uniqueId() + 1, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
           ],
         },
       ],
@@ -51,6 +50,7 @@ class Container extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleDetail = this.handleDetail.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -59,30 +59,38 @@ class Container extends Component {
     this.setState({ ...this.state, [name]: value });
 
     if (section === "experience") {
-      let stateCopy = [...this.state.experience];
-      let index = stateCopy.findIndex((element) => element.id === id);
-      stateCopy[index][name] = value;
-      this.setState({ stateCopy });
+      let experienceCopy = [...this.state.experience];
+      let index = experienceCopy.findIndex((element) => element.id === id);
+      experienceCopy[index][name] = value;
+      this.setState({ experienceCopy });
     }
 
     if (section === "education") {
-      let stateCopy = [...this.state.education];
-      let index = stateCopy.findIndex((element) => element.id === id);
-      stateCopy[index][name] = value;
-      this.setState({ stateCopy });
+      let educationCopy = [...this.state.education];
+      let index = educationCopy.findIndex((element) => element.id === id);
+      educationCopy[index][name] = value;
+      this.setState({ educationCopy });
     }
+  }
+
+  handleDetail(value, experienceId, detailId) {
+    let experienceCopy = [...this.state.experience];
+    let index = experienceCopy.findIndex((element) => element.id === experienceId);
+    let detailIndex = experienceCopy[index].details.findIndex((element) => element.id === detailId);
+    experienceCopy[index].details[detailIndex].text = value;
+    this.setState({ experienceCopy });
   }
 
   handleDelete(id, name) {
     if (name === "experienceDelete") {
-      let stateCopy = [...this.state.experience];
-      let newState = stateCopy.filter((element) => element.id !== id);
+      let experienceCopy = [...this.state.experience];
+      let newState = experienceCopy.filter((element) => element.id !== id);
       this.setState({ experience: newState });
     }
 
     if (name === "educationDelete") {
-      let stateCopy = [...this.state.education];
-      let newState = stateCopy.filter((element) => element.id !== id);
+      let educationCopy = [...this.state.education];
+      let newState = educationCopy.filter((element) => element.id !== id);
       this.setState({ education: newState });
     }
   }
@@ -90,7 +98,10 @@ class Container extends Component {
   handleAdd(name) {
     if (name === "experienceAdd") {
       this.setState({
-        experience: [...this.state.experience, { id: uniqueId(), company: "", startDate: "", endDate: "", details: [] }],
+        experience: [
+          ...this.state.experience,
+          { id: uniqueId(), company: "", startDate: "", endDate: "", details: [{ id: uniqueId(), text: "" }] },
+        ],
       });
     }
 
@@ -122,6 +133,7 @@ class Container extends Component {
           experienceInfo={experienceInfo}
           educationInfo={educationInfo}
           handleChange={this.handleChange}
+          handleDetail={this.handleDetail}
           handleDelete={this.handleDelete}
           handleAdd={this.handleAdd}
         />

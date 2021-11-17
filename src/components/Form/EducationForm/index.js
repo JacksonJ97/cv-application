@@ -54,12 +54,6 @@ class EducationForm extends Component {
           section="education"
           id={this.props.info.id}
         />
-
-        {/* <input type="text" value={school} placeholder="School" onChange={this.handleChange} name="school" />
-        <input type="text" value={degree} placeholder="Degree" onChange={this.handleChange} name="degree" />
-        <input type="text" value={location} placeholder="Location" onChange={this.handleChange} name="location" />
-        <input type="text" value={startDate} placeholder="Start Date" onChange={this.handleChange} name="startDate" />
-        <input type="text" value={endDate} placeholder="End Date" onChange={this.handleChange} name="endDate" /> */}
         <DeleteButton onClick={this.handleDelete} name="educationDelete" id={this.props.info.id} />
       </div>
     );

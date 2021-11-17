@@ -22,12 +22,17 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleDetail = this.handleDetail.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
   }
 
   handleChange(value, name, id, section) {
     this.props.handleChange(value, name, id, section);
+  }
+
+  handleDetail(value, experienceId, detailId) {
+    this.props.handleDetail(value, experienceId, detailId);
   }
 
   handleDelete(id, name) {
@@ -52,7 +57,15 @@ class Form extends Component {
 
         <FormHeading title="Work Experience" />
         {experience.map((element) => {
-          return <ExperienceForm info={element} handleChange={this.handleChange} handleDelete={this.handleDelete} key={element.id} />;
+          return (
+            <ExperienceForm
+              info={element}
+              handleChange={this.handleChange}
+              handleDetail={this.handleDetail}
+              handleDelete={this.handleDelete}
+              key={element.id}
+            />
+          );
         })}
         <AddButton onClick={this.handleAdd} name="experienceAdd" />
 

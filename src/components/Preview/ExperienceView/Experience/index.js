@@ -17,15 +17,17 @@ const Wrapper = styled.div`
 
 class Experience extends Component {
   render() {
+    const details = this.props.details;
+
     return (
       <Wrapper>
         <SubHeading subtitle={this.props.company} />
         <Date startDate={this.props.startDate} endDate={this.props.endDate} />
 
         <ul>
-          {this.props.details.map((detail, index) => (
-            <li key={index}>{detail}</li>
-          ))}
+          {details.map((detail) => {
+            return <li key={detail.id}>{detail.text}</li>;
+          })}
         </ul>
       </Wrapper>
     );
