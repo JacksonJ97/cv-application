@@ -23,6 +23,7 @@ class Form extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleDetail = this.handleDetail.bind(this);
+    this.handleAddDetail = this.handleAddDetail.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
   }
@@ -33,6 +34,10 @@ class Form extends Component {
 
   handleDetail(value, experienceId, detailId) {
     this.props.handleDetail(value, experienceId, detailId);
+  }
+
+  handleAddDetail(id) {
+    this.props.handleAddDetail(id);
   }
 
   handleDelete(id, name) {
@@ -62,6 +67,7 @@ class Form extends Component {
               info={element}
               handleChange={this.handleChange}
               handleDetail={this.handleDetail}
+              handleAddDetail={this.handleAddDetail}
               handleDelete={this.handleDelete}
               key={element.id}
             />

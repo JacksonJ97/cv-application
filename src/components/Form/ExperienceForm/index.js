@@ -15,9 +15,15 @@ const Wrapper = styled.div`
     resize: none;
   }
 
-  .detail-container {
+  .details-container {
     display: flex;
     flex-direction: column;
+  }
+
+  .detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
 
@@ -26,6 +32,7 @@ class ExperienceForm extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleDetail = this.handleDetail.bind(this);
+    this.handleAddDetail = this.handleAddDetail.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -35,6 +42,10 @@ class ExperienceForm extends Component {
 
   handleDetail(value, experienceId, detailId) {
     this.props.handleDetail(value, experienceId, detailId);
+  }
+
+  handleAddDetail() {
+    this.props.handleAddDetail(this.props.info.id);
   }
 
   handleDelete(id, name) {
@@ -73,18 +84,18 @@ class ExperienceForm extends Component {
           section="experience"
           id={this.props.info.id}
         />
-        <div className="detail-container">
+
+        <div className="details-container">
           {details.map((element) => {
             return (
-              <Textarea
-                value={element.text}
-                handleDetail={this.handleDetail}
-                id={this.props.info.id}
-                detailId={element.id}
-                key={element.id}
-              />
+              <div className="detail" key={element.id}>
+                <Textarea value={element.text} handleDetail={this.handleDetail} id={this.props.info.id} detailId={element.id} />
+                <button>Delete</button>
+              </div>
             );
           })}
+
+          <button onClick={this.handleAddDetail}>Add Detail</button>
         </div>
 
         <DeleteButton onClick={this.handleDelete} name="experienceDelete" id={this.props.info.id} />
