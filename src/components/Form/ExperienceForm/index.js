@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Input from "../../Utilities/Input";
 import Textarea from "../../Utilities/Textarea";
 import DeleteButton from "../../Utilities/DeleteButton";
+import DetailDeleteButton from "../../Utilities/DetailDeleteButton";
 
 // Styles
 const Wrapper = styled.div`
@@ -33,6 +34,7 @@ class ExperienceForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleDetail = this.handleDetail.bind(this);
     this.handleAddDetail = this.handleAddDetail.bind(this);
+    this.handleDeleteDetail = this.handleDeleteDetail.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -46,6 +48,10 @@ class ExperienceForm extends Component {
 
   handleAddDetail() {
     this.props.handleAddDetail(this.props.info.id);
+  }
+
+  handleDeleteDetail(experienceId, detailId) {
+    this.props.handleDeleteDetail(experienceId, detailId);
   }
 
   handleDelete(id, name) {
@@ -90,7 +96,7 @@ class ExperienceForm extends Component {
             return (
               <div className="detail" key={element.id}>
                 <Textarea value={element.text} handleDetail={this.handleDetail} id={this.props.info.id} detailId={element.id} />
-                <button>Delete</button>
+                <DetailDeleteButton handleDeleteDetail={this.handleDeleteDetail} id={this.props.info.id} detailId={element.id} />
               </div>
             );
           })}

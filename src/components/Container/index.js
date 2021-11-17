@@ -52,6 +52,7 @@ class Container extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleDetail = this.handleDetail.bind(this);
     this.handleAddDetail = this.handleAddDetail.bind(this);
+    this.handleDeleteDetail = this.handleDeleteDetail.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -87,6 +88,14 @@ class Container extends Component {
     let index = experienceCopy.findIndex((element) => element.id === id);
     experienceCopy[index].details = [...this.state.experience[index].details, { id: uniqueId(), text: "" }];
     this.setState({ experienceCopy });
+  }
+
+  handleDeleteDetail(experienceId, detailId) {
+    let experienceCopy = [...this.state.experience];
+    let index = experienceCopy.findIndex((element) => element.id === experienceId);
+    let newDetails = experienceCopy[index].details.filter((element) => element.id !== detailId);
+    experienceCopy[index].details = newDetails;
+    this.setState({ experience: experienceCopy });
   }
 
   handleDelete(id, name) {
@@ -143,6 +152,7 @@ class Container extends Component {
           handleChange={this.handleChange}
           handleDetail={this.handleDetail}
           handleAddDetail={this.handleAddDetail}
+          handleDeleteDetail={this.handleDeleteDetail}
           handleDelete={this.handleDelete}
           handleAdd={this.handleAdd}
         />
