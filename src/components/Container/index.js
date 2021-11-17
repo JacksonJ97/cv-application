@@ -18,33 +18,29 @@ class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "Jackson",
-      lastName: "Jude",
-      address: "123 Random Street",
-      phoneNumber: "123-456-7890",
-      email: "example@gmail.com",
-      summary:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      firstName: "",
+      lastName: "",
+      address: "",
+      phoneNumber: "",
+      email: "",
+      summary: "",
       experience: [
         {
           id: uniqueId(),
-          company: "Example Company",
-          startDate: "April 2019",
-          endDate: "March 2020",
-          details: [
-            { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
-            { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
-          ],
+          company: "",
+          startDate: "",
+          endDate: "",
+          details: [{ id: uniqueId(), text: "" }],
         },
       ],
       education: [
         {
           id: uniqueId(),
-          school: "Ryerson University",
-          degree: "Bachelor of Engineering (BEng) in Electrical Engineering",
-          location: "Toronto, ON",
-          startDate: "Sept 2015",
-          endDate: "April 2020",
+          school: "",
+          degree: "",
+          location: "",
+          startDate: "",
+          endDate: "",
         },
       ],
     };
@@ -55,6 +51,7 @@ class Container extends Component {
     this.handleDeleteDetail = this.handleDeleteDetail.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleLoadExample = this.handleLoadExample.bind(this);
   }
 
   handleChange(value, name, id, section) {
@@ -129,6 +126,58 @@ class Container extends Component {
     }
   }
 
+  handleLoadExample() {
+    this.setState({
+      firstName: "John",
+      lastName: "Smith",
+      address: "123 Random Street",
+      phoneNumber: "123-456-7890",
+      email: "example@gmail.com",
+      summary:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      experience: [
+        {
+          id: uniqueId(),
+          company: "Example Company",
+          startDate: "April 2019",
+          endDate: "March 2020",
+          details: [
+            { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
+            { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
+          ],
+        },
+        {
+          id: uniqueId(),
+          company: "Example Company",
+          startDate: "April 2017",
+          endDate: "March 2019",
+          details: [
+            { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
+            { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
+          ],
+        },
+      ],
+      education: [
+        {
+          id: uniqueId(),
+          school: "Havard University",
+          degree: "Bachelor of Engineering (BEng) in Computer Engineering",
+          location: "Cambridge, MA",
+          startDate: "Sept 2020",
+          endDate: "April 2021",
+        },
+        {
+          id: uniqueId(),
+          school: "Ryerson University",
+          degree: "Bachelor of Engineering (BEng) in Electrical Engineering",
+          location: "Toronto, ON",
+          startDate: "Sept 2015",
+          endDate: "April 2020",
+        },
+      ],
+    });
+  }
+
   render() {
     const basicInfo = {
       firstName: this.state.firstName,
@@ -155,6 +204,7 @@ class Container extends Component {
           handleDeleteDetail={this.handleDeleteDetail}
           handleDelete={this.handleDelete}
           handleAdd={this.handleAdd}
+          handleLoadExample={this.handleLoadExample}
         />
         <Preview basicInfo={basicInfo} summaryInfo={summaryInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} />
       </Wrapper>

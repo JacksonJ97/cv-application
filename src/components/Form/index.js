@@ -27,6 +27,7 @@ class Form extends Component {
     this.handleDeleteDetail = this.handleDeleteDetail.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
+    this.handleLoadExample = this.handleLoadExample.bind(this);
   }
 
   handleChange(value, name, id, section) {
@@ -51,6 +52,10 @@ class Form extends Component {
 
   handleAdd(name) {
     this.props.handleAdd(name);
+  }
+
+  handleLoadExample() {
+    this.props.handleLoadExample();
   }
 
   render() {
@@ -86,6 +91,8 @@ class Form extends Component {
           return <EducationForm info={element} handleChange={this.handleChange} handleDelete={this.handleDelete} key={element.id} />;
         })}
         <AddButton onClick={this.handleAdd} name="educationAdd" />
+
+        <button onClick={this.handleLoadExample}>Load Example</button>
       </Wrapper>
     );
   }

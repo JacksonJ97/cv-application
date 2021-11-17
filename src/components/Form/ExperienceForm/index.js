@@ -13,6 +13,7 @@ const Wrapper = styled.div`
     width: 400px;
     height: 50px;
     margin: 0.5em 0;
+    padding: 0.25em;
     resize: none;
   }
 
@@ -95,7 +96,13 @@ class ExperienceForm extends Component {
           {details.map((element) => {
             return (
               <div className="detail" key={element.id}>
-                <Textarea value={element.text} handleDetail={this.handleDetail} id={this.props.info.id} detailId={element.id} />
+                <Textarea
+                  value={element.text}
+                  handleDetail={this.handleDetail}
+                  id={this.props.info.id}
+                  detailId={element.id}
+                  placeholder="Detail"
+                />
                 <DetailDeleteButton handleDeleteDetail={this.handleDeleteDetail} id={this.props.info.id} detailId={element.id} />
               </div>
             );
