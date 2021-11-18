@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
+  background-color: #2c394b;
 `;
 
 class Container extends Component {

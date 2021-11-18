@@ -4,8 +4,17 @@ import styled from "styled-components";
 // Styles
 const Button = styled.button`
   width: 100%;
-  padding: 0.5em;
+  padding: 0.75em 0.5em;
   margin: 0.5em 0;
+  background-color: #082032;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  :hover {
+    background-color: #2c394b;
+  }
 `;
 
 class DeleteButton extends Component {

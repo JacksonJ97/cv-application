@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Textarea = styled.textarea`
   width: 100%;
   height: 100px;
-  padding: 0.25em;
+  padding: 0.5em;
   resize: none;
 `;
 

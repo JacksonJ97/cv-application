@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Header = styled.h2`
   font-size: 1.25rem;
   font-weight: 400;
-  margin-bottom: 0.75em;
+  margin: 0.75em 0;
 `;
 
 class FormHeading extends Component {

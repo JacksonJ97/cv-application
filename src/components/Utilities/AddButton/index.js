@@ -4,8 +4,17 @@ import styled from "styled-components";
 // Styles
 const Button = styled.button`
   width: 100%;
-  padding: 0.5em;
+  padding: 0.75em 0.5em;
   margin: 0.5em 0;
+  background-color: #ff4c29;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  :hover {
+    background-color: #ff5f40;
+  }
 `;
 
 class AddButton extends Component {

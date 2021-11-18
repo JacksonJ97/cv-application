@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     width: 400px;
     height: 50px;
     margin: 0.5em 0;
-    padding: 0.25em;
+    padding: 0.5em;
     resize: none;
   }
 
@@ -26,6 +26,20 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .add-detail-btn {
+    margin: 0.5em 0;
+    padding: 0.75em 0.5em;
+    background-color: #ff7f66;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .add-detail-btn:hover {
+    background-color: #ff8870;
   }
 `;
 
@@ -108,7 +122,9 @@ class ExperienceForm extends Component {
             );
           })}
 
-          <button onClick={this.handleAddDetail}>Add Detail</button>
+          <button className="add-detail-btn" onClick={this.handleAddDetail}>
+            Add Detail
+          </button>
         </div>
 
         <DeleteButton onClick={this.handleDelete} name="experienceDelete" id={this.props.info.id} />

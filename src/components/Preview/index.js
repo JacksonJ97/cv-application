@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   margin: 2em;
   padding: 2em;
   width: 900px;
+  background-color: #ffffff;
 `;
 
 class Preview extends Component {

@@ -16,6 +16,22 @@ const Wrapper = styled.div`
   margin: 2em;
   padding: 2em;
   width: 900px;
+  background-color: #ffffff;
+
+  .load-example-btn {
+    width: 100%;
+    padding: 0.75em 0.5em;
+    margin: 0.5em 0;
+    background-color: #334756;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .load-example-btn:hover {
+    background-color: #2c394b;
+  }
 `;
 
 class Form extends Component {
@@ -92,7 +108,9 @@ class Form extends Component {
         })}
         <AddButton onClick={this.handleAdd} name="educationAdd" />
 
-        <button onClick={this.handleLoadExample}>Load Example</button>
+        <button className="load-example-btn" onClick={this.handleLoadExample}>
+          Load Example
+        </button>
       </Wrapper>
     );
   }
