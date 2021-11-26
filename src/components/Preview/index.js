@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Components
@@ -17,17 +16,15 @@ const Wrapper = styled.div`
   background-color: #ffffff;
 `;
 
-class Preview extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <BasicInfoView info={this.props.basicInfo} />
-        <SummaryView info={this.props.summaryInfo} />
-        <ExperienceView info={this.props.experienceInfo} />
-        <EducationView info={this.props.educationInfo} />
-      </Wrapper>
-    );
-  }
-}
+const Preview = (props) => {
+  return (
+    <Wrapper>
+      <BasicInfoView info={props.basicInfo} />
+      <SummaryView info={props.summaryInfo} />
+      <ExperienceView info={props.experienceInfo} />
+      <EducationView info={props.educationInfo} />
+    </Wrapper>
+  );
+};
 
 export default Preview;

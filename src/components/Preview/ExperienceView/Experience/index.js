@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Components
@@ -15,23 +14,21 @@ const Wrapper = styled.div`
   }
 `;
 
-class Experience extends Component {
-  render() {
-    const details = this.props.details;
+const Experience = (props) => {
+  const details = props.details;
 
-    return (
-      <Wrapper>
-        <SubHeading subtitle={this.props.company} />
-        <Date startDate={this.props.startDate} endDate={this.props.endDate} />
+  return (
+    <Wrapper>
+      <SubHeading subtitle={props.company} />
+      <Date startDate={props.startDate} endDate={props.endDate} />
 
-        <ul>
-          {details.map((detail) => {
-            return <li key={detail.id}>{detail.text}</li>;
-          })}
-        </ul>
-      </Wrapper>
-    );
-  }
-}
+      <ul>
+        {details.map((detail) => {
+          return <li key={detail.id}>{detail.text}</li>;
+        })}
+      </ul>
+    </Wrapper>
+  );
+};
 
 export default Experience;

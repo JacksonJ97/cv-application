@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Components
@@ -28,22 +27,20 @@ const Wrapper = styled.div`
   }
 `;
 
-class Education extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <div>
-          <h3>{this.props.school}</h3>
-          <p className="bold">{this.props.location}</p>
-        </div>
+const Education = (props) => {
+  return (
+    <Wrapper>
+      <div>
+        <h3>{props.school}</h3>
+        <p className="bold">{props.location}</p>
+      </div>
 
-        <div>
-          <p>{this.props.degree}</p>
-          <Date startDate={this.props.startDate} endDate={this.props.endDate} />
-        </div>
-      </Wrapper>
-    );
-  }
-}
+      <div>
+        <p>{props.degree}</p>
+        <Date startDate={props.startDate} endDate={props.endDate} />
+      </div>
+    </Wrapper>
+  );
+};
 
 export default Education;

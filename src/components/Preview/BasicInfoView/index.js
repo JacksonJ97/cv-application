@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Styles
@@ -24,22 +23,20 @@ const Wrapper = styled.div`
   }
 `;
 
-class BasicInfoView extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <div className="name">
-          {this.props.info.firstName} {this.props.info.lastName}
-        </div>
+const BasicInfoView = (props) => {
+  return (
+    <Wrapper>
+      <div className="name">
+        {props.info.firstName} {props.info.lastName}
+      </div>
 
-        <div className="basic-info">
-          <div>{this.props.info.address}</div>
-          <div>{this.props.info.phoneNumber}</div>
-          <div>{this.props.info.email}</div>
-        </div>
-      </Wrapper>
-    );
-  }
-}
+      <div className="basic-info">
+        <div>{props.info.address}</div>
+        <div>{props.info.phoneNumber}</div>
+        <div>{props.info.email}</div>
+      </div>
+    </Wrapper>
+  );
+};
 
 export default BasicInfoView;

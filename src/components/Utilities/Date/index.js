@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Styles
@@ -7,14 +6,12 @@ const Wrapper = styled.div`
   margin-bottom: 1em;
 `;
 
-class Date extends Component {
-  render() {
-    return (
-      <Wrapper>
-        {this.props.startDate} - {this.props.endDate}
-      </Wrapper>
-    );
-  }
-}
+const Date = (props) => {
+  return (
+    <Wrapper>
+      {props.startDate} - {props.endDate}
+    </Wrapper>
+  );
+};
 
 export default Date;

@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Components
@@ -11,15 +10,13 @@ const Wrapper = styled.div`
   }
 `;
 
-class SummaryView extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <Heading title="Summary" />
-        <p>{this.props.info}</p>
-      </Wrapper>
-    );
-  }
-}
+const SummaryView = (props) => {
+  return (
+    <Wrapper>
+      <Heading title="Summary" />
+      <p>{props.info}</p>
+    </Wrapper>
+  );
+};
 
 export default SummaryView;

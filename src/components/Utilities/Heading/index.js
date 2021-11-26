@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Styles
@@ -9,10 +8,8 @@ const Header = styled.h2`
   font-weight: 400;
 `;
 
-class Heading extends Component {
-  render() {
-    return <Header>{this.props.title}</Header>;
-  }
-}
+const Heading = (props) => {
+  return <Header>{props.title}</Header>;
+};
 
 export default Heading;

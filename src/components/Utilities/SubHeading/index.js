@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Styles
@@ -7,10 +6,8 @@ const SubHeader = styled.h3`
   margin-bottom: 0.25em;
 `;
 
-class SubHeading extends Component {
-  render() {
-    return <SubHeader>{this.props.subtitle}</SubHeader>;
-  }
-}
+const SubHeading = (props) => {
+  return <SubHeader>{props.subtitle}</SubHeader>;
+};
 
 export default SubHeading;
