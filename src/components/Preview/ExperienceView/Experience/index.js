@@ -15,15 +15,13 @@ const Wrapper = styled.div`
 `;
 
 const Experience = (props) => {
-  const details = props.details;
-
   return (
     <Wrapper>
       <SubHeading subtitle={props.company} />
       <Date startDate={props.startDate} endDate={props.endDate} />
 
       <ul>
-        {details.map((detail) => {
+        {props.details.map((detail) => {
           return <li key={detail.id}>{detail.text}</li>;
         })}
       </ul>

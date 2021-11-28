@@ -27,13 +27,13 @@ const BasicInfoView = (props) => {
   return (
     <Wrapper>
       <div className="name">
-        {props.info.firstName} {props.info.lastName}
+        {props.basicInfo.firstName} {props.basicInfo.lastName}
       </div>
 
       <div className="basic-info">
-        <div>{props.info.address}</div>
-        <div>{props.info.phoneNumber}</div>
-        <div>{props.info.email}</div>
+        <div>{props.basicInfo.address}</div>
+        <div>{props.basicInfo.phoneNumber}</div>
+        <div>{props.basicInfo.email}</div>
       </div>
     </Wrapper>
   );

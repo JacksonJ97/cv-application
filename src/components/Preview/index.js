@@ -19,10 +19,10 @@ const Wrapper = styled.div`
 const Preview = (props) => {
   return (
     <Wrapper>
-      <BasicInfoView info={props.basicInfo} />
-      <SummaryView info={props.summaryInfo} />
-      <ExperienceView info={props.experienceInfo} />
-      <EducationView info={props.educationInfo} />
+      <BasicInfoView basicInfo={props.basicInfo} />
+      <SummaryView summaryInfo={props.summaryInfo} />
+      <ExperienceView experienceInfo={props.experienceInfo} />
+      <EducationView educationInfo={props.educationInfo} />
     </Wrapper>
   );
 };

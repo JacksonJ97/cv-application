@@ -6,7 +6,7 @@ const ExperienceView = (props) => {
   return (
     <div>
       <Heading title="Work Experience" />
-      {props.info.map((element) => {
+      {props.experienceInfo.map((element) => {
         return (
           <Experience
             company={element.company}

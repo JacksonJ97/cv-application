@@ -14,7 +14,7 @@ const SummaryView = (props) => {
   return (
     <Wrapper>
       <Heading title="Summary" />
-      <p>{props.info}</p>
+      <p>{props.summaryInfo}</p>
     </Wrapper>
   );
 };

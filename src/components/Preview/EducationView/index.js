@@ -3,12 +3,10 @@ import Heading from "../../Utilities/Heading";
 import Education from "./Education";
 
 const EducationView = (props) => {
-  const education = props.info;
-
   return (
     <div>
       <Heading title="Education" />
-      {education.map((element, index) => {
+      {props.educationInfo.map((element) => {
         return (
           <Education
             school={element.school}
@@ -16,7 +14,7 @@ const EducationView = (props) => {
             location={element.location}
             startDate={element.startDate}
             endDate={element.endDate}
-            key={index}
+            key={element.id}
           />
         );
       })}
