@@ -15,7 +15,7 @@ const Button = styled.button`
 `;
 
 const DeleteDetailButton = (props) => {
-  const handleDetail = (e) => {
+  const handleDetail = () => {
     props.handleDetail(props.name, props.experienceId, props.detailId);
   };
 
