@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Components
@@ -43,94 +42,78 @@ const Wrapper = styled.div`
   }
 `;
 
-class ExperienceForm extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleDetail = this.handleDetail.bind(this);
-    this.handleAddDetail = this.handleAddDetail.bind(this);
-    this.handleDeleteDetail = this.handleDeleteDetail.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-  }
+const ExperienceForm = (props) => {
+  const handleChange = (value, name, id, section) => {
+    props.handleChange(value, name, id, section);
+  };
 
-  handleChange(value, name, id, section) {
-    this.props.handleChange(value, name, id, section);
-  }
+  const handleDetail = (value, experienceId, detailId) => {
+    props.handleDetail(value, experienceId, detailId);
+  };
 
-  handleDetail(value, experienceId, detailId) {
-    this.props.handleDetail(value, experienceId, detailId);
-  }
+  const handleAddDetail = () => {
+    props.handleAddDetail(props.experienceInfo.id);
+  };
 
-  handleAddDetail() {
-    this.props.handleAddDetail(this.props.info.id);
-  }
+  const handleDeleteDetail = (experienceId, detailId) => {
+    props.handleDeleteDetail(experienceId, detailId);
+  };
 
-  handleDeleteDetail(experienceId, detailId) {
-    this.props.handleDeleteDetail(experienceId, detailId);
-  }
+  const handleDelete = (id, name) => {
+    props.handleDelete(id, name);
+  };
 
-  handleDelete(id, name) {
-    this.props.handleDelete(id, name);
-  }
+  return (
+    <Wrapper>
+      <Input
+        value={props.experienceInfo.company}
+        placeholder="Company"
+        onChange={handleChange}
+        name="company"
+        section="experience"
+        id={props.experienceInfo.id}
+      />
+      <Input
+        value={props.experienceInfo.startDate}
+        placeholder="Start Date"
+        onChange={handleChange}
+        name="startDate"
+        section="experience"
+        id={props.experienceInfo.id}
+      />
+      <Input
+        value={props.experienceInfo.endDate}
+        placeholder="End Date"
+        onChange={handleChange}
+        name="endDate"
+        section="experience"
+        id={props.experienceInfo.id}
+      />
 
-  render() {
-    const company = this.props.info.company;
-    const startDate = this.props.info.startDate;
-    const endDate = this.props.info.endDate;
-    const details = this.props.info.details;
+      <div className="details-container">
+        {props.experienceInfo.details.map((element) => {
+          return (
+            <div className="detail" key={element.id}>
+              <Textarea
+                value={element.text}
+                handleDetail={handleDetail}
+                id={props.experienceInfo.id}
+                detailId={element.id}
+                placeholder="Detail"
+              />
+              <DetailDeleteButton handleDeleteDetail={handleDeleteDetail} id={props.experienceInfo.id} detailId={element.id} />
+            </div>
+          );
+        })}
 
-    return (
-      <Wrapper>
-        <Input
-          value={company}
-          placeholder="Company"
-          onChange={this.handleChange}
-          name="company"
-          section="experience"
-          id={this.props.info.id}
-        />
-        <Input
-          value={startDate}
-          placeholder="Start Date"
-          onChange={this.handleChange}
-          name="startDate"
-          section="experience"
-          id={this.props.info.id}
-        />
-        <Input
-          value={endDate}
-          placeholder="End Date"
-          onChange={this.handleChange}
-          name="endDate"
-          section="experience"
-          id={this.props.info.id}
-        />
+        <button className="add-detail-btn" onClick={handleAddDetail}>
+          Add Detail
+        </button>
+      </div>
 
-        <div className="details-container">
-          {details.map((element) => {
-            return (
-              <div className="detail" key={element.id}>
-                <Textarea
-                  value={element.text}
-                  handleDetail={this.handleDetail}
-                  id={this.props.info.id}
-                  detailId={element.id}
-                  placeholder="Detail"
-                />
-                <DetailDeleteButton handleDeleteDetail={this.handleDeleteDetail} id={this.props.info.id} detailId={element.id} />
-              </div>
-            );
-          })}
-
-          <button className="add-detail-btn" onClick={this.handleAddDetail}>
-            Add Detail
-          </button>
-        </div>
-
-        <DeleteButton onClick={this.handleDelete} name="experienceDelete" id={this.props.info.id} />
-      </Wrapper>
-    );
-  }
-}
+      <DeleteButton onClick={handleDelete} name="experienceDelete" id={props.experienceInfo.id} />
+    </Wrapper>
+  );
+};
 
 export default ExperienceForm;

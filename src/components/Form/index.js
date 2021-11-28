@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 // Components
@@ -66,16 +65,16 @@ const Form = (props) => {
   return (
     <Wrapper>
       <FormHeading title="Personal Information" />
-      <BasicInfoForm info={props.basicInfo} handleChange={handleChange} />
+      <BasicInfoForm basicInfo={props.basicInfo} handleChange={handleChange} />
 
       <FormHeading title="Summary" />
-      <SummaryForm info={props.summaryInfo} handleChange={handleChange} />
+      <SummaryForm summaryInfo={props.summaryInfo} handleChange={handleChange} />
 
       <FormHeading title="Work Experience" />
       {props.experienceInfo.map((element) => {
         return (
           <ExperienceForm
-            info={element}
+            experienceInfo={element}
             handleChange={handleChange}
             handleDetail={handleDetail}
             handleAddDetail={handleAddDetail}
@@ -89,7 +88,7 @@ const Form = (props) => {
 
       <FormHeading title="Education" />
       {props.educationInfo.map((element) => {
-        return <EducationForm info={element} handleChange={handleChange} handleDelete={handleDelete} key={element.id} />;
+        return <EducationForm educationInfo={element} handleChange={handleChange} handleDelete={handleDelete} key={element.id} />;
       })}
       <AddButton onClick={handleAdd} name="educationAdd" />
 

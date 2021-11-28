@@ -1,63 +1,61 @@
-import React, { Component } from "react";
-
 // Components
 import Input from "../../Utilities/Input";
 import DeleteButton from "../../Utilities/DeleteButton";
 
-class EducationForm extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-  }
+const EducationForm = (props) => {
+  const handleDelete = (id, name) => {
+    props.handleDelete(id, name);
+  };
 
-  handleDelete(id, name) {
-    this.props.handleDelete(id, name);
-  }
+  const handleChange = (value, name, id, section) => {
+    props.handleChange(value, name, id, section);
+  };
 
-  handleChange(value, name, id, section) {
-    this.props.handleChange(value, name, id, section);
-  }
-
-  render() {
-    const school = this.props.info.school;
-    const degree = this.props.info.degree;
-    const location = this.props.info.location;
-    const startDate = this.props.info.startDate;
-    const endDate = this.props.info.endDate;
-
-    return (
-      <div>
-        <Input value={school} placeholder="School" onChange={this.handleChange} name="school" section="education" id={this.props.info.id} />
-        <Input value={degree} placeholder="Degree" onChange={this.handleChange} name="degree" section="education" id={this.props.info.id} />
-        <Input
-          value={location}
-          placeholder="Location"
-          onChange={this.handleChange}
-          name="location"
-          section="education"
-          id={this.props.info.id}
-        />
-        <Input
-          value={startDate}
-          placeholder="Start Date"
-          onChange={this.handleChange}
-          name="startDate"
-          section="education"
-          id={this.props.info.id}
-        />
-        <Input
-          value={endDate}
-          placeholder="End Date"
-          onChange={this.handleChange}
-          name="endDate"
-          section="education"
-          id={this.props.info.id}
-        />
-        <DeleteButton onClick={this.handleDelete} name="educationDelete" id={this.props.info.id} />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Input
+        value={props.educationInfo.school}
+        placeholder="School"
+        onChange={handleChange}
+        name="school"
+        section="education"
+        id={props.educationInfo.id}
+      />
+      <Input
+        value={props.educationInfo.degree}
+        placeholder="Degree"
+        onChange={handleChange}
+        name="degree"
+        section="education"
+        id={props.educationInfo.id}
+      />
+      <Input
+        value={props.educationInfo.location}
+        placeholder="Location"
+        onChange={handleChange}
+        name="location"
+        section="education"
+        id={props.educationInfo.id}
+      />
+      <Input
+        value={props.educationInfo.startDate}
+        placeholder="Start Date"
+        onChange={handleChange}
+        name="startDate"
+        section="education"
+        id={props.educationInfo.id}
+      />
+      <Input
+        value={props.educationInfo.endDate}
+        placeholder="End Date"
+        onChange={handleChange}
+        name="endDate"
+        section="education"
+        id={props.educationInfo.id}
+      />
+      <DeleteButton onClick={handleDelete} name="educationDelete" id={props.educationInfo.id} />
+    </div>
+  );
+};
 
 export default EducationForm;

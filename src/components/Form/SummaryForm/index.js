@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Styles
@@ -9,19 +8,12 @@ const Textarea = styled.textarea`
   resize: none;
 `;
 
-class SummaryForm extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
+const SummaryForm = (props) => {
+  const handleChange = (e) => {
+    props.handleChange(e.target.value, e.target.name);
+  };
 
-  handleChange(e) {
-    this.props.handleChange(e.target.value, e.target.name);
-  }
-
-  render() {
-    return <Textarea value={this.props.info} onChange={this.handleChange} name="summary" placeholder="Description" />;
-  }
-}
+  return <Textarea value={props.info} onChange={handleChange} name="summary" placeholder="Description" />;
+};
 
 export default SummaryForm;
