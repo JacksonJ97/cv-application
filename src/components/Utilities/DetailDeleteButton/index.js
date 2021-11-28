@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Styles
@@ -15,18 +14,11 @@ const Button = styled.button`
   }
 `;
 
-class DetailDeleteButton extends Component {
-  constructor(props) {
-    super(props);
-    this.handleDeleteDetail = this.handleDeleteDetail.bind(this);
-  }
+const DetailDeleteButton = (props) => {
+  const handleDeleteDetail = () => {
+    props.handleDeleteDetail(props.id, props.detailId);
+  };
 
-  handleDeleteDetail() {
-    this.props.handleDeleteDetail(this.props.id, this.props.detailId);
-  }
-
-  render() {
-    return <Button onClick={this.handleDeleteDetail}>Delete</Button>;
-  }
-}
+  return <Button onClick={handleDeleteDetail}>Delete</Button>;
+};
 export default DetailDeleteButton;

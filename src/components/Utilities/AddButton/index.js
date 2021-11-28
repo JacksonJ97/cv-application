@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Styles
@@ -17,23 +16,16 @@ const Button = styled.button`
   }
 `;
 
-class AddButton extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
+const AddButton = (props) => {
+  const handleClick = (e) => {
+    props.onClick(e.target.name);
+  };
 
-  handleClick(e) {
-    this.props.onClick(e.target.name);
-  }
-
-  render() {
-    return (
-      <Button onClick={this.handleClick} name={this.props.name}>
-        Add
-      </Button>
-    );
-  }
-}
+  return (
+    <Button onClick={handleClick} name={props.name}>
+      Add
+    </Button>
+  );
+};
 
 export default AddButton;

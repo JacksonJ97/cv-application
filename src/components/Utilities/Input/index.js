@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import styled from "styled-components";
 
 // Styles
@@ -9,27 +8,12 @@ const Wrapper = styled.input`
   padding: 0.5em;
 `;
 
-class Input extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
+const Input = (props) => {
+  const handleChange = (e) => {
+    props.onChange(e.target.value, e.target.name, props.id, props.section);
+  };
 
-  handleChange(e) {
-    this.props.onChange(e.target.value, e.target.name, this.props.id, this.props.section);
-  }
-
-  render() {
-    return (
-      <Wrapper
-        type="text"
-        value={this.props.value}
-        placeholder={this.props.placeholder}
-        onChange={this.handleChange}
-        name={this.props.name}
-      />
-    );
-  }
-}
+  return <Wrapper type="text" value={props.value} placeholder={props.placeholder} onChange={handleChange} name={props.name} />;
+};
 
 export default Input;
