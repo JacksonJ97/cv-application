@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
 // Components
@@ -34,86 +34,70 @@ const Wrapper = styled.div`
   }
 `;
 
-class Form extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleDetail = this.handleDetail.bind(this);
-    this.handleAddDetail = this.handleAddDetail.bind(this);
-    this.handleDeleteDetail = this.handleDeleteDetail.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleAdd = this.handleAdd.bind(this);
-    this.handleLoadExample = this.handleLoadExample.bind(this);
-  }
+const Form = (props) => {
+  const handleChange = (value, name, id, section) => {
+    props.handleChange(value, name, id, section);
+  };
 
-  handleChange(value, name, id, section) {
-    this.props.handleChange(value, name, id, section);
-  }
+  const handleDetail = (value, experienceId, detailId) => {
+    props.handleDetail(value, experienceId, detailId);
+  };
 
-  handleDetail(value, experienceId, detailId) {
-    this.props.handleDetail(value, experienceId, detailId);
-  }
+  const handleAddDetail = (id) => {
+    props.handleAddDetail(id);
+  };
 
-  handleAddDetail(id) {
-    this.props.handleAddDetail(id);
-  }
+  const handleDeleteDetail = (experienceId, detailId) => {
+    props.handleDeleteDetail(experienceId, detailId);
+  };
 
-  handleDeleteDetail(experienceId, detailId) {
-    this.props.handleDeleteDetail(experienceId, detailId);
-  }
+  const handleDelete = (id, name) => {
+    props.handleDelete(id, name);
+  };
 
-  handleDelete(id, name) {
-    this.props.handleDelete(id, name);
-  }
+  const handleAdd = (name) => {
+    props.handleAdd(name);
+  };
 
-  handleAdd(name) {
-    this.props.handleAdd(name);
-  }
+  const handleLoadExample = () => {
+    props.handleLoadExample();
+  };
 
-  handleLoadExample() {
-    this.props.handleLoadExample();
-  }
+  return (
+    <Wrapper>
+      <FormHeading title="Personal Information" />
+      <BasicInfoForm info={props.basicInfo} handleChange={handleChange} />
 
-  render() {
-    const education = this.props.educationInfo;
-    const experience = this.props.experienceInfo;
+      <FormHeading title="Summary" />
+      <SummaryForm info={props.summaryInfo} handleChange={handleChange} />
 
-    return (
-      <Wrapper>
-        <FormHeading title="Personal Information" />
-        <BasicInfoForm info={this.props.basicInfo} handleChange={this.handleChange} />
+      <FormHeading title="Work Experience" />
+      {props.experienceInfo.map((element) => {
+        return (
+          <ExperienceForm
+            info={element}
+            handleChange={handleChange}
+            handleDetail={handleDetail}
+            handleAddDetail={handleAddDetail}
+            handleDeleteDetail={handleDeleteDetail}
+            handleDelete={handleDelete}
+            key={element.id}
+          />
+        );
+      })}
+      <AddButton onClick={handleAdd} name="experienceAdd" />
 
-        <FormHeading title="Summary" />
-        <SummaryForm info={this.props.summaryInfo} handleChange={this.handleChange} />
+      <FormHeading title="Education" />
+      {props.educationInfo.map((element) => {
+        return <EducationForm info={element} handleChange={handleChange} handleDelete={handleDelete} key={element.id} />;
+      })}
+      <AddButton onClick={handleAdd} name="educationAdd" />
 
-        <FormHeading title="Work Experience" />
-        {experience.map((element) => {
-          return (
-            <ExperienceForm
-              info={element}
-              handleChange={this.handleChange}
-              handleDetail={this.handleDetail}
-              handleAddDetail={this.handleAddDetail}
-              handleDeleteDetail={this.handleDeleteDetail}
-              handleDelete={this.handleDelete}
-              key={element.id}
-            />
-          );
-        })}
-        <AddButton onClick={this.handleAdd} name="experienceAdd" />
-
-        <FormHeading title="Education" />
-        {education.map((element) => {
-          return <EducationForm info={element} handleChange={this.handleChange} handleDelete={this.handleDelete} key={element.id} />;
-        })}
-        <AddButton onClick={this.handleAdd} name="educationAdd" />
-
-        <button className="load-example-btn" onClick={this.handleLoadExample}>
-          Load Example
-        </button>
-      </Wrapper>
-    );
-  }
-}
+      <button className="load-example-btn" onClick={handleLoadExample}>
+        Load Example
+      </button>
+    </Wrapper>
+  );
+};
 
 export default Form;
