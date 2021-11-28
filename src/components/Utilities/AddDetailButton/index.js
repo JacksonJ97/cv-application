@@ -16,8 +16,8 @@ const Button = styled.button`
 `;
 
 const AddDetailButton = (props) => {
-  const handleDetail = (e) => {
-    props.handleDetail(e.target.value, props.name, props.experienceId);
+  const handleDetail = () => {
+    props.handleDetail(props.name, props.experienceId);
   };
 
   return <Button onClick={handleDetail}>Add Detail</Button>;

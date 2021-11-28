@@ -75,7 +75,7 @@ const Container = () => {
     }
   };
 
-  const handleDetail = (value, name, experienceId, detailId) => {
+  const handleDetail = (name, experienceId, detailId, value) => {
     const experienceCopy = [...experienceInfo];
     const index = experienceCopy.findIndex((element) => element.id === experienceId);
 

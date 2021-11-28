@@ -38,8 +38,8 @@ const Form = (props) => {
     props.handleChange(value, name, id, section);
   };
 
-  const handleDetail = (value, name, experienceId, detailId) => {
-    props.handleDetail(value, name, experienceId, detailId);
+  const handleDetail = (name, experienceId, detailId, value) => {
+    props.handleDetail(name, experienceId, detailId, value);
   };
 
   const handleDelete = (id, name) => {

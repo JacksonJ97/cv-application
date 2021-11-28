@@ -34,8 +34,8 @@ const ExperienceForm = (props) => {
     props.handleChange(value, name, id, section);
   };
 
-  const handleDetail = (value, experienceId, detailId, name) => {
-    props.handleDetail(value, experienceId, detailId, name);
+  const handleDetail = (name, experienceId, detailId, value) => {
+    props.handleDetail(name, experienceId, detailId, value);
   };
 
   const handleDelete = (id, name) => {
