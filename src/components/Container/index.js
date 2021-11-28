@@ -76,47 +76,28 @@ const Container = () => {
     }
   };
 
-  // const handleDetail = (value, experienceId, detailId) => {
-  //   setExperienceInfo((prevState) => {
-  //     let newState = prevState;
-  //     return newState;
-  //   });
-  // };
+  const handleDetail = (value, experienceId, detailId) => {
+    let experienceCopy = [...experienceInfo];
+    let index = experienceCopy.findIndex((element) => element.id === experienceId);
+    let detailIndex = experienceCopy[index].details.findIndex((element) => element.id === detailId);
+    experienceCopy[index].details[detailIndex].text = value;
+    setExperienceInfo(experienceCopy);
+  };
 
-  // const handleDetail(value, experienceId, detailId) {
-  //   let experienceCopy = [...this.state.experience];
-  //   let index = experienceCopy.findIndex((element) => element.id === experienceId);
-  //   let detailIndex = experienceCopy[index].details.findIndex((element) => element.id === detailId);
-  //   experienceCopy[index].details[detailIndex].text = value;
-  //   this.setState({ experienceCopy });
-  // }
+  const handleAddDetail = (id) => {
+    let experienceCopy = [...experienceInfo];
+    let index = experienceCopy.findIndex((element) => element.id === id);
+    experienceCopy[index].details = [...experienceCopy[index].details, { id: uniqueId(), text: "" }];
+    setExperienceInfo(experienceCopy);
+  };
 
-  // const handleAddDetail = (id) => {
-  //   setExperienceInfo((prevState) => {
-  //     let newState = [...prevState];
-  //     let index = newState.findIndex((element) => element.id === id);
-  //     newState[index].details = [...newState[index].details, { id: uniqueId(), text: "" }];
-  //     console.log(newState[index].details.push({ id: uniqueId(), text: "" }));
-  //     console.log(prevState);
-  //     console.log(newState);
-  //     return newState;
-  //   });
-  // };
-
-  // handleAddDetail(id) {
-  //   let experienceCopy = [...this.state.experience];
-  //   let index = experienceCopy.findIndex((element) => element.id === id);
-  //   experienceCopy[index].details = [...this.state.experience[index].details, { id: uniqueId(), text: "" }];
-  //   this.setState({ experienceCopy });
-  // }
-
-  // handleDeleteDetail(experienceId, detailId) {
-  //   let experienceCopy = [...this.state.experience];
-  //   let index = experienceCopy.findIndex((element) => element.id === experienceId);
-  //   let newDetails = experienceCopy[index].details.filter((element) => element.id !== detailId);
-  //   experienceCopy[index].details = newDetails;
-  //   this.setState({ experience: experienceCopy });
-  // }
+  const handleDeleteDetail = (experienceId, detailId) => {
+    let experienceCopy = [...experienceInfo];
+    let index = experienceCopy.findIndex((element) => element.id === experienceId);
+    let newDetails = experienceCopy[index].details.filter((element) => element.id !== detailId);
+    experienceCopy[index].details = newDetails;
+    setExperienceInfo(experienceCopy);
+  };
 
   const handleDelete = (id, name) => {
     if (name === "experienceDelete") {
@@ -206,9 +187,9 @@ const Container = () => {
         experienceInfo={experienceInfo}
         educationInfo={educationInfo}
         handleChange={handleChange}
-        // handleDetail={handleDetail}
-        // handleAddDetail={handleAddDetail}
-        // handleDeleteDetail={this.handleDeleteDetail}
+        handleDetail={handleDetail}
+        handleAddDetail={handleAddDetail}
+        handleDeleteDetail={handleDeleteDetail}
         handleDelete={handleDelete}
         handleAdd={handleAdd}
         // handleLoadExample={this.handleLoadExample}
