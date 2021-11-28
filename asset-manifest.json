@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/odin-cv-application/static/js/main.1045c455.chunk.js",
-    "main.js.map": "/odin-cv-application/static/js/main.1045c455.chunk.js.map",
+    "main.js": "/odin-cv-application/static/js/main.ea9ac389.chunk.js",
+    "main.js.map": "/odin-cv-application/static/js/main.ea9ac389.chunk.js.map",
     "runtime-main.js": "/odin-cv-application/static/js/runtime-main.5b6d3ca2.js",
     "runtime-main.js.map": "/odin-cv-application/static/js/runtime-main.5b6d3ca2.js.map",
-    "static/js/2.64294a2d.chunk.js": "/odin-cv-application/static/js/2.64294a2d.chunk.js",
-    "static/js/2.64294a2d.chunk.js.map": "/odin-cv-application/static/js/2.64294a2d.chunk.js.map",
+    "static/js/2.980ab288.chunk.js": "/odin-cv-application/static/js/2.980ab288.chunk.js",
+    "static/js/2.980ab288.chunk.js.map": "/odin-cv-application/static/js/2.980ab288.chunk.js.map",
     "index.html": "/odin-cv-application/index.html",
-    "static/js/2.64294a2d.chunk.js.LICENSE.txt": "/odin-cv-application/static/js/2.64294a2d.chunk.js.LICENSE.txt"
+    "static/js/2.980ab288.chunk.js.LICENSE.txt": "/odin-cv-application/static/js/2.980ab288.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5b6d3ca2.js",
-    "static/js/2.64294a2d.chunk.js",
-    "static/js/main.1045c455.chunk.js"
+    "static/js/2.980ab288.chunk.js",
+    "static/js/main.ea9ac389.chunk.js"
   ]
 }
