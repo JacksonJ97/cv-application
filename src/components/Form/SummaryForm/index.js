@@ -13,7 +13,7 @@ const SummaryForm = (props) => {
     props.handleChange(e.target.value, e.target.name);
   };
 
-  return <Textarea value={props.info} onChange={handleChange} name="summary" placeholder="Description" />;
+  return <Textarea value={props.summaryInfo} onChange={handleChange} name="summary" placeholder="Description" />;
 };
 
 export default SummaryForm;

@@ -4,7 +4,8 @@ import styled from "styled-components";
 import Input from "../../Utilities/Input";
 import Textarea from "../../Utilities/Textarea";
 import DeleteButton from "../../Utilities/DeleteButton";
-import DetailDeleteButton from "../../Utilities/DetailDeleteButton";
+import DeleteDetailButton from "../../Utilities/DetailDeleteButton";
+import AddDetailButton from "../../Utilities/AddDetailButton";
 
 // Styles
 const Wrapper = styled.div`
@@ -26,20 +27,6 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
   }
-
-  .add-detail-btn {
-    margin: 0.5em 0;
-    padding: 0.75em 0.5em;
-    background-color: #ff7f66;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .add-detail-btn:hover {
-    background-color: #ff8870;
-  }
 `;
 
 const ExperienceForm = (props) => {
@@ -47,16 +34,8 @@ const ExperienceForm = (props) => {
     props.handleChange(value, name, id, section);
   };
 
-  const handleDetail = (value, experienceId, detailId) => {
-    props.handleDetail(value, experienceId, detailId);
-  };
-
-  const handleAddDetail = () => {
-    props.handleAddDetail(props.experienceInfo.id);
-  };
-
-  const handleDeleteDetail = (experienceId, detailId) => {
-    props.handleDeleteDetail(experienceId, detailId);
+  const handleDetail = (value, experienceId, detailId, name) => {
+    props.handleDetail(value, experienceId, detailId, name);
   };
 
   const handleDelete = (id, name) => {
@@ -97,18 +76,22 @@ const ExperienceForm = (props) => {
               <Textarea
                 value={element.text}
                 handleDetail={handleDetail}
-                id={props.experienceInfo.id}
+                experienceId={props.experienceInfo.id}
                 detailId={element.id}
+                name="detailTextarea"
                 placeholder="Detail"
               />
-              <DetailDeleteButton handleDeleteDetail={handleDeleteDetail} id={props.experienceInfo.id} detailId={element.id} />
+              <DeleteDetailButton
+                handleDetail={handleDetail}
+                experienceId={props.experienceInfo.id}
+                detailId={element.id}
+                name="deleteDetailButton"
+              />
             </div>
           );
         })}
 
-        <button className="add-detail-btn" onClick={handleAddDetail}>
-          Add Detail
-        </button>
+        <AddDetailButton handleDetail={handleDetail} experienceId={props.experienceInfo.id} name="addDetailButton" />
       </div>
 
       <DeleteButton onClick={handleDelete} name="experienceDelete" id={props.experienceInfo.id} />

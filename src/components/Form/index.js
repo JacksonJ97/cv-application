@@ -38,16 +38,8 @@ const Form = (props) => {
     props.handleChange(value, name, id, section);
   };
 
-  const handleDetail = (value, experienceId, detailId) => {
-    props.handleDetail(value, experienceId, detailId);
-  };
-
-  const handleAddDetail = (id) => {
-    props.handleAddDetail(id);
-  };
-
-  const handleDeleteDetail = (experienceId, detailId) => {
-    props.handleDeleteDetail(experienceId, detailId);
+  const handleDetail = (value, name, experienceId, detailId) => {
+    props.handleDetail(value, name, experienceId, detailId);
   };
 
   const handleDelete = (id, name) => {
@@ -77,8 +69,6 @@ const Form = (props) => {
             experienceInfo={element}
             handleChange={handleChange}
             handleDetail={handleDetail}
-            handleAddDetail={handleAddDetail}
-            handleDeleteDetail={handleDeleteDetail}
             handleDelete={handleDelete}
             key={element.id}
           />

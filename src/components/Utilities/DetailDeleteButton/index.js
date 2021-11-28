@@ -14,11 +14,11 @@ const Button = styled.button`
   }
 `;
 
-const DetailDeleteButton = (props) => {
-  const handleDeleteDetail = () => {
-    props.handleDeleteDetail(props.id, props.detailId);
+const DeleteDetailButton = (props) => {
+  const handleDetail = (e) => {
+    props.handleDetail(e.target.value, props.name, props.experienceId, props.detailId);
   };
 
-  return <Button onClick={handleDeleteDetail}>Delete</Button>;
+  return <Button onClick={handleDetail}>Delete</Button>;
 };
-export default DetailDeleteButton;
+export default DeleteDetailButton;

@@ -54,7 +54,6 @@ const Container = () => {
 
     if (name === "summary") {
       setSummaryInfo(value);
-      console.log(value);
     }
 
     if (section === "experience") {
@@ -76,27 +75,26 @@ const Container = () => {
     }
   };
 
-  const handleDetail = (value, experienceId, detailId) => {
-    let experienceCopy = [...experienceInfo];
-    let index = experienceCopy.findIndex((element) => element.id === experienceId);
-    let detailIndex = experienceCopy[index].details.findIndex((element) => element.id === detailId);
-    experienceCopy[index].details[detailIndex].text = value;
-    setExperienceInfo(experienceCopy);
-  };
+  const handleDetail = (value, name, experienceId, detailId) => {
+    const experienceCopy = [...experienceInfo];
+    const index = experienceCopy.findIndex((element) => element.id === experienceId);
 
-  const handleAddDetail = (id) => {
-    let experienceCopy = [...experienceInfo];
-    let index = experienceCopy.findIndex((element) => element.id === id);
-    experienceCopy[index].details = [...experienceCopy[index].details, { id: uniqueId(), text: "" }];
-    setExperienceInfo(experienceCopy);
-  };
+    if (name === "detailTextarea") {
+      const detailIndex = experienceCopy[index].details.findIndex((element) => element.id === detailId);
+      experienceCopy[index].details[detailIndex].text = value;
+      setExperienceInfo(experienceCopy);
+    }
 
-  const handleDeleteDetail = (experienceId, detailId) => {
-    let experienceCopy = [...experienceInfo];
-    let index = experienceCopy.findIndex((element) => element.id === experienceId);
-    let newDetails = experienceCopy[index].details.filter((element) => element.id !== detailId);
-    experienceCopy[index].details = newDetails;
-    setExperienceInfo(experienceCopy);
+    if (name === "deleteDetailButton") {
+      const newDetails = experienceCopy[index].details.filter((element) => element.id !== detailId);
+      experienceCopy[index].details = newDetails;
+      setExperienceInfo(experienceCopy);
+    }
+
+    if (name === "addDetailButton") {
+      experienceCopy[index].details = [...experienceCopy[index].details, { id: uniqueId(), text: "" }];
+      setExperienceInfo(experienceCopy);
+    }
   };
 
   const handleDelete = (id, name) => {
@@ -192,8 +190,6 @@ const Container = () => {
         educationInfo={educationInfo}
         handleChange={handleChange}
         handleDetail={handleDetail}
-        handleAddDetail={handleAddDetail}
-        handleDeleteDetail={handleDeleteDetail}
         handleDelete={handleDelete}
         handleAdd={handleAdd}
         handleLoadExample={handleLoadExample}
