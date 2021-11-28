@@ -54,6 +54,7 @@ const Container = () => {
 
     if (name === "summary") {
       setSummaryInfo(value);
+      console.log(value);
     }
 
     if (section === "experience") {
@@ -75,6 +76,13 @@ const Container = () => {
     }
   };
 
+  // const handleDetail = (value, experienceId, detailId) => {
+  //   setExperienceInfo((prevState) => {
+  //     let newState = prevState;
+  //     return newState;
+  //   });
+  // };
+
   // const handleDetail(value, experienceId, detailId) {
   //   let experienceCopy = [...this.state.experience];
   //   let index = experienceCopy.findIndex((element) => element.id === experienceId);
@@ -83,14 +91,26 @@ const Container = () => {
   //   this.setState({ experienceCopy });
   // }
 
-  // const handleAddDetail(id) {
+  // const handleAddDetail = (id) => {
+  //   setExperienceInfo((prevState) => {
+  //     let newState = [...prevState];
+  //     let index = newState.findIndex((element) => element.id === id);
+  //     newState[index].details = [...newState[index].details, { id: uniqueId(), text: "" }];
+  //     console.log(newState[index].details.push({ id: uniqueId(), text: "" }));
+  //     console.log(prevState);
+  //     console.log(newState);
+  //     return newState;
+  //   });
+  // };
+
+  // handleAddDetail(id) {
   //   let experienceCopy = [...this.state.experience];
   //   let index = experienceCopy.findIndex((element) => element.id === id);
   //   experienceCopy[index].details = [...this.state.experience[index].details, { id: uniqueId(), text: "" }];
   //   this.setState({ experienceCopy });
   // }
 
-  // const handleDeleteDetail(experienceId, detailId) {
+  // handleDeleteDetail(experienceId, detailId) {
   //   let experienceCopy = [...this.state.experience];
   //   let index = experienceCopy.findIndex((element) => element.id === experienceId);
   //   let newDetails = experienceCopy[index].details.filter((element) => element.id !== detailId);
@@ -98,38 +118,35 @@ const Container = () => {
   //   this.setState({ experience: experienceCopy });
   // }
 
-  // const handleDelete(id, name) {
-  //   if (name === "experienceDelete") {
-  //     let experienceCopy = [...this.state.experience];
-  //     let newState = experienceCopy.filter((element) => element.id !== id);
-  //     this.setState({ experience: newState });
-  //   }
+  const handleDelete = (id, name) => {
+    if (name === "experienceDelete") {
+      let experienceCopy = [...experienceInfo];
+      let newState = experienceCopy.filter((element) => element.id !== id);
+      setExperienceInfo(newState);
+    }
 
-  //   if (name === "educationDelete") {
-  //     let educationCopy = [...this.state.education];
-  //     let newState = educationCopy.filter((element) => element.id !== id);
-  //     this.setState({ education: newState });
-  //   }
-  // }
+    if (name === "educationDelete") {
+      let educationCopy = [...educationInfo];
+      let newState = educationCopy.filter((element) => element.id !== id);
+      setEducationInfo(newState);
+    }
+  };
 
-  // const handleAdd(name) {
-  //   if (name === "experienceAdd") {
-  //     this.setState({
-  //       experience: [
-  //         ...this.state.experience,
-  //         { id: uniqueId(), company: "", startDate: "", endDate: "", details: [{ id: uniqueId(), text: "" }] },
-  //       ],
-  //     });
-  //   }
+  const handleAdd = (name) => {
+    if (name === "experienceAdd") {
+      setExperienceInfo((prevState) => {
+        return [...prevState, { id: uniqueId(), company: "", startDate: "", endDate: "", details: [{ id: uniqueId(), text: "" }] }];
+      });
+    }
 
-  //   if (name === "educationAdd") {
-  //     this.setState({
-  //       education: [...this.state.education, { id: uniqueId(), school: "", degree: "", location: "", startDate: "", endDate: "" }],
-  //     });
-  //   }
-  // }
+    if (name === "educationAdd") {
+      setEducationInfo((prevState) => {
+        return [...prevState, { id: uniqueId(), school: "", degree: "", location: "", startDate: "", endDate: "" }];
+      });
+    }
+  };
 
-  // const handleLoadExample() {
+  // handleLoadExample() {
   //   this.setState({
   //     firstName: "John",
   //     lastName: "Smith",
@@ -189,11 +206,11 @@ const Container = () => {
         experienceInfo={experienceInfo}
         educationInfo={educationInfo}
         handleChange={handleChange}
-        // handleDetail={this.handleDetail}
-        // handleAddDetail={this.handleAddDetail}
+        // handleDetail={handleDetail}
+        // handleAddDetail={handleAddDetail}
         // handleDeleteDetail={this.handleDeleteDetail}
-        // handleDelete={this.handleDelete}
-        // handleAdd={this.handleAdd}
+        handleDelete={handleDelete}
+        handleAdd={handleAdd}
         // handleLoadExample={this.handleLoadExample}
       />
       <Preview basicInfo={basicInfo} summaryInfo={summaryInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} />
