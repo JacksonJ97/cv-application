@@ -28,7 +28,6 @@ const Container = () => {
   });
 
   const [summaryInfo, setSummaryInfo] = useState("");
-
   const [experienceInfo, setExperienceInfo] = useState([
     {
       id: uniqueId(),
@@ -102,14 +101,14 @@ const Container = () => {
 
   const handleDelete = (id, name) => {
     if (name === "experienceDelete") {
-      let experienceCopy = [...experienceInfo];
-      let newState = experienceCopy.filter((element) => element.id !== id);
+      const experienceCopy = [...experienceInfo];
+      const newState = experienceCopy.filter((element) => element.id !== id);
       setExperienceInfo(newState);
     }
 
     if (name === "educationDelete") {
-      let educationCopy = [...educationInfo];
-      let newState = educationCopy.filter((element) => element.id !== id);
+      const educationCopy = [...educationInfo];
+      const newState = educationCopy.filter((element) => element.id !== id);
       setEducationInfo(newState);
     }
   };

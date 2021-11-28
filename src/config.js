@@ -19,6 +19,7 @@ const exampleData = {
       details: [
         { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
         { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
+        { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
       ],
     },
     {
@@ -27,6 +28,7 @@ const exampleData = {
       startDate: "April 2017",
       endDate: "March 2019",
       details: [
+        { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
         { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
         { id: uniqueId(), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
       ],
