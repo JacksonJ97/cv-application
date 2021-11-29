@@ -1,6 +1,6 @@
 import uniqueId from "lodash/uniqueId";
 
-const exampleData = {
+export const exampleData = {
   basicInfo: {
     firstName: "John",
     lastName: "Smith",
@@ -54,4 +54,32 @@ const exampleData = {
   ],
 };
 
-export default exampleData;
+export const blankData = {
+  basicInfo: {
+    firstName: "",
+    lastName: "",
+    address: "",
+    phoneNumber: "",
+    email: "",
+  },
+  summaryInfo: "",
+  experienceInfo: [
+    {
+      id: uniqueId(),
+      company: "",
+      startDate: "",
+      endDate: "",
+      details: [{ id: uniqueId(), text: "" }],
+    },
+  ],
+  educationInfo: [
+    {
+      id: uniqueId(),
+      school: "",
+      degree: "",
+      location: "",
+      startDate: "",
+      endDate: "",
+    },
+  ],
+};

@@ -2,8 +2,8 @@ import { useState } from "react";
 import uniqueId from "lodash/uniqueId";
 import styled from "styled-components";
 
-// Example Data
-import exampleData from "../../config";
+// Data
+import { exampleData, blankData } from "../../config";
 
 // Components
 import Form from "../Form";
@@ -134,6 +134,13 @@ const Container = () => {
     setEducationInfo(exampleData.educationInfo);
   };
 
+  const handleReset = () => {
+    setBasicInfo(blankData.basicInfo);
+    setSummaryInfo(blankData.summaryInfo);
+    setExperienceInfo(blankData.experienceInfo);
+    setEducationInfo(blankData.educationInfo);
+  };
+
   return (
     <Wrapper>
       <Form
@@ -146,6 +153,7 @@ const Container = () => {
         handleDelete={handleDelete}
         handleAdd={handleAdd}
         handleLoadExample={handleLoadExample}
+        handleReset={handleReset}
       />
       <Preview basicInfo={basicInfo} summaryInfo={summaryInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} />
     </Wrapper>
