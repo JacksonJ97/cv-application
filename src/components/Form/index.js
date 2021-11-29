@@ -23,6 +23,11 @@ const Wrapper = styled.div`
     align-items: center;
   }
 
+  h4 {
+    font-weight: 400;
+    margin: 0.5em 0;
+  }
+
   .btn {
     width: 100%;
     padding: 0.75em 0.5em;
@@ -92,15 +97,18 @@ const Form = (props) => {
         <FormHeading title="Work Experience" />
         <AddButton onClick={handleAdd} name="experienceAdd" />
       </div>
-      {props.experienceInfo.map((element) => {
+      {props.experienceInfo.map((element, index) => {
         return (
-          <ExperienceForm
-            experienceInfo={element}
-            handleChange={handleChange}
-            handleDetail={handleDetail}
-            handleDelete={handleDelete}
-            key={element.id}
-          />
+          <>
+            <h4>Experience {index + 1}</h4>
+            <ExperienceForm
+              experienceInfo={element}
+              handleChange={handleChange}
+              handleDetail={handleDetail}
+              handleDelete={handleDelete}
+              key={element.id}
+            />
+          </>
         );
       })}
 
@@ -108,8 +116,13 @@ const Form = (props) => {
         <FormHeading title="Education" />
         <AddButton onClick={handleAdd} name="educationAdd" />
       </div>
-      {props.educationInfo.map((element) => {
-        return <EducationForm educationInfo={element} handleChange={handleChange} handleDelete={handleDelete} key={element.id} />;
+      {props.educationInfo.map((element, index) => {
+        return (
+          <>
+            <h4>Education {index + 1}</h4>
+            <EducationForm educationInfo={element} handleChange={handleChange} handleDelete={handleDelete} key={element.id} />
+          </>
+        );
       })}
 
       <button className="load-example-btn btn" onClick={handleLoadExample}>
