@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   border: 1px solid black;
   margin: 2em;
   padding: 2em;
-  width: 900px;
+  width: 70%;
   background-color: #ffffff;
 
   .header-container {
@@ -42,6 +42,16 @@ const Wrapper = styled.div`
   }
 
   .reset-btn {
+    color: #fff;
+    background-color: #ff4c29;
+  }
+
+  .reset-btn:hover {
+    background-color: #ff5f40;
+  }
+
+  @media (min-width: 1300px) {
+    width: 45%;
   }
 `;
 

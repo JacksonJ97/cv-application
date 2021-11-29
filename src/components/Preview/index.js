@@ -12,8 +12,16 @@ const Wrapper = styled.div`
   border: 1px solid black;
   margin: 2em;
   padding: 2em;
-  width: 900px;
+  width: 70%;
   background-color: #ffffff;
+
+  @media (min-width: 1300px) {
+    position: sticky;
+    top: 3%;
+    left: 50%;
+    align-self: flex-start;
+    width: 45%;
+  }
 `;
 
 const Preview = (props) => {

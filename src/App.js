@@ -6,10 +6,10 @@ import Container from "./components/Container";
 
 const App = () => {
   return (
-    <div>
+    <>
       <Container />
       <GlobalStyle />
-    </div>
+    </>
   );
 };
 

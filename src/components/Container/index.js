@@ -15,7 +15,13 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
+  width: 100%;
   background-color: #2c394b;
+  flex-direction: column;
+
+  @media (min-width: 1300px) {
+    flex-direction: row;
+  }
 `;
 
 const Container = () => {
