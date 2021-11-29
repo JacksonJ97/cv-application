@@ -10,7 +10,7 @@ import AddDetailButton from "../../Utilities/AddDetailButton";
 // Styles
 const Wrapper = styled.div`
   textarea {
-    width: 400px;
+    width: 60%;
     height: 50px;
     margin: 0.5em 0;
     padding: 0.5em;
@@ -26,6 +26,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    column-gap: 24px;
   }
 `;
 

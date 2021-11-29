@@ -17,6 +17,12 @@ const Wrapper = styled.div`
   width: 900px;
   background-color: #ffffff;
 
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .btn {
     width: 100%;
     padding: 0.75em 0.5em;
@@ -72,7 +78,10 @@ const Form = (props) => {
       <FormHeading title="Summary" />
       <SummaryForm summaryInfo={props.summaryInfo} handleChange={handleChange} />
 
-      <FormHeading title="Work Experience" />
+      <div className="header-container">
+        <FormHeading title="Work Experience" />
+        <AddButton onClick={handleAdd} name="experienceAdd" />
+      </div>
       {props.experienceInfo.map((element) => {
         return (
           <ExperienceForm
@@ -84,13 +93,14 @@ const Form = (props) => {
           />
         );
       })}
-      <AddButton onClick={handleAdd} name="experienceAdd" />
 
-      <FormHeading title="Education" />
+      <div className="header-container">
+        <FormHeading title="Education" />
+        <AddButton onClick={handleAdd} name="educationAdd" />
+      </div>
       {props.educationInfo.map((element) => {
         return <EducationForm educationInfo={element} handleChange={handleChange} handleDelete={handleDelete} key={element.id} />;
       })}
-      <AddButton onClick={handleAdd} name="educationAdd" />
 
       <button className="load-example-btn btn" onClick={handleLoadExample}>
         Load Example

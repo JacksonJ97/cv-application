@@ -1,18 +1,16 @@
 import styled from "styled-components";
+import plusIcon from "../../../assets/plus-icon.svg";
 
 // Styles
-const Button = styled.button`
-  width: 100%;
-  padding: 0.75em 0.5em;
-  margin: 0.5em 0;
-  background-color: #ff4c29;
+const Img = styled.img`
+  max-width: 45px;
+  padding: 0.25em;
   color: #ffffff;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
 
   :hover {
-    background-color: #ff5f40;
+    opacity: 0.7;
   }
 `;
 
@@ -21,11 +19,7 @@ const AddButton = (props) => {
     props.onClick(e.target.name);
   };
 
-  return (
-    <Button onClick={handleClick} name={props.name}>
-      Add
-    </Button>
-  );
+  return <Img src={plusIcon} alt="Plus Icon" onClick={handleClick} name={props.name} />;
 };
 
 export default AddButton;
