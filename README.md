@@ -12,7 +12,7 @@ A resume builder application where users can fill out a form which will but used
 
 ### What I learned
 
-In this project, I learned how to break down a project idea into components and translate that into the file structure. I practiced React concepts such as lifting state up and passing props down components. I built this project in class components first which was later then refactored into functional components and hooks. I also practiced how to handle controlled components to sync the user's inputs to the UI.
+In this project, I learned how to break down a project idea into components and translate that into the file structure. I practiced React concepts such as lifting state up and passing props down components. I also practiced how to handle controlled components to sync the user's inputs to the UI. I built this project in class components first which was later refactored into functional components and hooks.
 
 ### Live URL
 
